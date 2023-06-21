@@ -7,8 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.jms.JMSException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 public class App {
@@ -22,7 +20,7 @@ public class App {
 
         Properties properties = fileProcessing.loadProperties();
 
-        logger.info(properties.getProperty("username"));
+        logger.info(new App().readOutputFormat());
         logger.info(properties.getProperty("password"));
         MessageGenerator messageGenerator = new MessageGenerator();
 
@@ -45,9 +43,10 @@ public class App {
         String outputFormat = System.getProperty("N");
         if (outputFormat == null || Integer.parseInt(outputFormat) < 1000) {
             // delete before send !!!!!!!!
-            outputFormat = "1001";
+            outputFormat = "1000";
 //            logger.warn("Output format must be more then 1000");
         }
+
         return outputFormat;
     }
 }

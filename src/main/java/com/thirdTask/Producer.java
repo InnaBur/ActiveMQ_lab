@@ -6,13 +6,17 @@ import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.Properties;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Producer extends ConnectionProcessing {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     protected static void sendMessage(PooledConnectionFactory pooledConnectionFactory, MessageGenerator messageGenerator, Properties properties) throws JMSException, IOException {
 
+        LocalTime start = LocalTime.now();
         Connection producerConnection = pooledConnectionFactory.createConnection();
         producerConnection.start();
         logger.debug("Connection started");
@@ -27,11 +31,23 @@ public class Producer extends ConnectionProcessing {
 
         int numberOfMessages = Integer.parseInt(new App().readOutputFormat());
         TextMessage producerMessage;
+long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
+        System.out.println("POISON!" + poisonPill);
+        LocalTime endTime = start.plusSeconds(poisonPill);
+        int count = 0;
+        while (LocalTime.now().isBefore(endTime)) {
         for (int i = 0; i < numberOfMessages; i++) {
-            String messages = messageGenerator.generateMessages().toString();
-            producerMessage = producerSession.createTextMessage(messages);
-            producer.send(producerMessage);
+                String messages = messageGenerator.generateMessages().toString();
+                producerMessage = producerSession.createTextMessage(messages);
+                producer.send(producerMessage);
+                count++;
+            }
+            if (numberOfMessages == count) {
+                break;
+            }
         }
+        logger.info("PoisonPill worked");
+        logger.info("{}", count);
         logger.info("Messages sent");
         closeSession(producer, producerSession, producerConnection);
 
