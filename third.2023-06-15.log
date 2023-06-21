@@ -1,0 +1,146 @@
+15.06.2023 11:08:05.318 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:08:05.332 [main] INFO  com.thirdTask.App - Hello World!
+15.06.2023 11:08:05.334 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:08:11.963 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:08:11.968 [main] INFO  com.thirdTask.App - Hello World!
+15.06.2023 11:08:11.970 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:11:27.651 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:11:27.658 [main] ERROR c.t.FileProcessing - Properties into jar were not loaded 
+15.06.2023 11:11:27.659 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:11:27.661 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:14:54.197 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:14:54.205 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:14:54.206 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:14:54.207 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:15:50.720 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:15:50.725 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:15:50.725 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:15:50.726 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:16:01.017 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:16:01.024 [main] DEBUG com.thirdTask.App - Properties were loaded
+15.06.2023 11:16:01.024 [main] INFO  com.thirdTask.App - Інна
+15.06.2023 11:16:01.025 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:22:26.272 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:22:26.278 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:22:26.278 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:22:26.279 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:24:10.823 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:24:10.830 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:24:10.831 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:24:10.832 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:24:39.226 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:24:39.233 [main] DEBUG com.thirdTask.App - Properties were loaded
+15.06.2023 11:24:39.233 [main] INFO  com.thirdTask.App - Інна
+15.06.2023 11:24:39.235 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:24:50.239 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:24:50.244 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:24:50.244 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:24:50.247 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:24:58.659 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:24:58.665 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:24:58.665 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:24:58.665 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:25:20.234 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:25:20.238 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:25:20.239 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:25:20.241 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:27:28.758 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:27:28.761 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:27:28.763 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:27:28.764 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:27:49.353 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:27:49.358 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:27:49.358 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:27:49.359 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:28:07.116 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:28:07.122 [main] DEBUG com.thirdTask.App - Properties were loaded
+15.06.2023 11:28:07.122 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 11:28:07.123 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:29:57.736 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:29:57.741 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:29:57.741 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:29:57.742 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:30:39.348 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:30:39.357 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:30:39.358 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:30:39.359 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:30:51.753 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:30:51.758 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:30:51.759 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:30:51.759 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:31:28.090 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:31:28.094 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:31:28.095 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:31:28.095 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:31:38.614 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:31:38.620 [main] ERROR com.thirdTask.App - Properties into jar were not loaded 
+15.06.2023 11:31:38.621 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:31:38.622 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:36:30.622 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:37:51.813 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:37:51.818 [main] ERROR c.t.FileProcessing - Properties into jar were not loaded 
+15.06.2023 11:37:51.818 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:37:51.819 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:37:53.936 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:37:53.941 [main] ERROR c.t.FileProcessing - Properties into jar were not loaded 
+15.06.2023 11:37:53.941 [main] INFO  com.thirdTask.App - null
+15.06.2023 11:37:53.942 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:38:43.921 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:38:43.926 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 11:38:43.926 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 11:38:43.927 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:42:58.897 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:44:00.452 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:51:37.594 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:51:37.599 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 11:51:37.600 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 11:51:37.600 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:55:58.576 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:56:38.528 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:57:03.250 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 11:57:03.256 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 11:57:03.256 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 11:57:03.257 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 11:59:08.231 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 12:17:17.873 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 12:19:41.481 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 12:19:43.686 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 12:21:20.896 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 12:21:20.900 [main] ERROR c.t.FileProcessing - Properties out jar were not loaded 
+java.lang.NullPointerException: null
+	at java.base/java.io.Reader.<init>(Reader.java:168)
+	at java.base/java.io.InputStreamReader.<init>(InputStreamReader.java:111)
+	at com.thirdTask.FileProcessing.loadingPropertiesOutOfJar(FileProcessing.java:34)
+	at com.thirdTask.FileProcessing.readProperty(FileProcessing.java:19)
+	at com.thirdTask.App.main(App.java:23)
+15.06.2023 12:21:20.902 [main] INFO  com.thirdTask.App - 
+15.06.2023 12:21:20.902 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 13:05:35.957 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 13:05:35.964 [main] ERROR c.t.FileProcessing - Properties out jar were not loaded 
+15.06.2023 13:05:35.966 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 13:05:35.967 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 13:05:35.968 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 13:09:44.860 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 13:09:44.867 [main] ERROR c.t.FileProcessing - Properties out jar were not loaded 
+15.06.2023 13:09:44.869 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 13:09:44.869 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 13:09:44.870 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 13:12:18.892 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 13:12:18.899 [main] ERROR c.t.FileProcessing - Properties out jar were not loaded 
+15.06.2023 13:12:18.900 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 13:12:18.901 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 13:12:18.903 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 13:13:34.611 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 13:13:34.620 [main] ERROR c.t.FileProcessing - Properties out jar were not loaded 
+15.06.2023 13:13:34.622 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 13:13:34.623 [main] INFO  com.thirdTask.App - "some"
+15.06.2023 13:13:34.624 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 13:14:46.517 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 13:14:46.523 [main] ERROR c.t.FileProcessing - Properties out jar were not loaded 
+15.06.2023 13:14:46.526 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 13:14:46.526 [main] INFO  com.thirdTask.App - "in resourses"
+15.06.2023 13:14:46.527 [main] DEBUG com.thirdTask.App - Finish
+15.06.2023 13:15:08.166 [main] DEBUG com.thirdTask.App - Start
+15.06.2023 13:15:08.171 [main] DEBUG c.t.FileProcessing - Properties were loaded
+15.06.2023 13:15:08.172 [main] INFO  com.thirdTask.App - "in resourses"
+15.06.2023 13:15:08.173 [main] DEBUG com.thirdTask.App - Finish

@@ -1,0 +1,58 @@
+20.06.2023 17:58:18.531 [main] DEBUG com.thirdTask.App - Start
+20.06.2023 17:58:18.558 [main] DEBUG c.t.FileProcessing - Properties were loaded
+20.06.2023 17:58:18.560 [main] DEBUG c.t.FileProcessing - Properties were loaded
+20.06.2023 17:58:18.561 [main] DEBUG c.t.FileProcessing - Properties were loaded
+20.06.2023 17:58:18.562 [main] DEBUG c.t.FileProcessing - Properties were loaded
+20.06.2023 17:58:18.562 [main] DEBUG c.t.FileProcessing - Properties were loaded
+20.06.2023 17:58:18.639 [main] DEBUG com.thirdTask.App - Finish
+20.06.2023 18:00:41.277 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+20.06.2023 18:00:41.283 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+20.06.2023 18:00:41.297 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+20.06.2023 18:00:41.299 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+20.06.2023 18:00:41.300 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+20.06.2023 18:00:41.300 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+20.06.2023 18:00:41.306 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+20.06.2023 18:00:41.353 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+20.06.2023 18:00:41.584 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+20.06.2023 18:00:41.595 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+20.06.2023 18:00:41.596 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+20.06.2023 18:00:41.596 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+20.06.2023 18:00:41.597 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+20.06.2023 18:00:41.597 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+20.06.2023 18:00:41.837 [main] DEBUG o.h.v.i.m.d.ConstraintDescriptorImpl - Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.LuhnCheck, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={startIndex=0, payload=[Ljava.lang.Class;@23d1e5d0, endIndex=2147483647, groups=[Ljava.lang.Class;@704f1591, checkDigitIndex=-1, ignoreNonDigitCharacters=true, message={org.hibernate.validator.constraints.LuhnCheck.message}}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+20.06.2023 18:00:41.912 [main] DEBUG o.h.v.r.PlatformResourceBundleLocator - ValidationMessages not found.
+20.06.2023 18:00:41.916 [main] DEBUG o.h.v.r.PlatformResourceBundleLocator - ContributorValidationMessages not found.
+20.06.2023 18:00:41.922 [main] DEBUG o.h.v.r.PlatformResourceBundleLocator - org.hibernate.validator.ValidationMessages found.
+20.06.2023 18:02:09.451 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+20.06.2023 18:02:09.458 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+20.06.2023 18:02:09.473 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+20.06.2023 18:02:09.475 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+20.06.2023 18:02:09.476 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+20.06.2023 18:02:09.477 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+20.06.2023 18:02:09.483 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+20.06.2023 18:02:09.527 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+20.06.2023 18:02:09.726 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+20.06.2023 18:02:09.733 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+20.06.2023 18:02:09.734 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+20.06.2023 18:02:09.734 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+20.06.2023 18:02:09.734 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+20.06.2023 18:02:09.734 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+20.06.2023 18:02:09.888 [main] DEBUG o.h.v.i.m.d.ConstraintDescriptorImpl - Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.LuhnCheck, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={startIndex=0, payload=[Ljava.lang.Class;@5ee2b6f9, endIndex=2147483647, groups=[Ljava.lang.Class;@23d1e5d0, ignoreNonDigitCharacters=true, checkDigitIndex=-1, message={org.hibernate.validator.constraints.LuhnCheck.message}}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
+20.06.2023 18:02:09.966 [main] DEBUG o.h.v.r.PlatformResourceBundleLocator - ValidationMessages not found.
+20.06.2023 18:02:09.969 [main] DEBUG o.h.v.r.PlatformResourceBundleLocator - ContributorValidationMessages not found.
+20.06.2023 18:02:09.973 [main] DEBUG o.h.v.r.PlatformResourceBundleLocator - org.hibernate.validator.ValidationMessages found.
+20.06.2023 18:03:55.738 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+20.06.2023 18:03:55.744 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+20.06.2023 18:03:55.755 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+20.06.2023 18:03:55.757 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+20.06.2023 18:03:55.759 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+20.06.2023 18:03:55.759 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+20.06.2023 18:03:55.764 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+20.06.2023 18:03:55.808 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+20.06.2023 18:03:55.974 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+20.06.2023 18:03:55.981 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+20.06.2023 18:03:55.982 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+20.06.2023 18:03:55.982 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+20.06.2023 18:03:55.982 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+20.06.2023 18:03:55.982 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+20.06.2023 18:03:56.126 [main] DEBUG o.h.v.i.m.d.ConstraintDescriptorImpl - Adding composing constraint: ConstraintDescriptorImpl{annotation=o.h.v.c.LuhnCheck, payloads=[], hasComposingConstraints=true, isReportAsSingleInvalidConstraint=false, constraintLocationKind=FIELD, definedOn=DEFINED_LOCALLY, groups=[interface jakarta.validation.groups.Default], attributes={startIndex=0, payload=[Ljava.lang.Class;@35390ee3, endIndex=2147483647, groups=[Ljava.lang.Class;@5e01a982, checkDigitIndex=-1, ignoreNonDigitCharacters=true, message={org.hibernate.validator.constraints.LuhnCheck.message}}, constraintType=GENERIC, valueUnwrapping=DEFAULT}.
