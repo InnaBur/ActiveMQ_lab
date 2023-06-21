@@ -1,113 +1,48 @@
 package com.thirdTask;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.jms.pool.PooledConnectionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
+import java.io.IOException;
+import java.util.Properties;
 
-public class Producer {
-    FileProcessing fileProcessing = new FileProcessing();
-    private static final String BROKER_URL
-            = "ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com:61617";
-    private final static String ACTIVE_MQ_USERNAME = "Inna";
-    private final static String ACTIVE_MQ_PASSWORD = "F-hfRflf-hf!23";
+public class Producer extends ConnectionProcessing {
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
-    public static void main(String[] args) throws JMSException {
-        final ActiveMQConnectionFactory connectionFactory =
-                createActiveMQConnectionFactory();
-        final PooledConnectionFactory pooledConnectionFactory =
-                createPooledConnectionFactory(connectionFactory);
+    protected static void sendMessage(PooledConnectionFactory pooledConnectionFactory, MessageGenerator messageGenerator, Properties properties) throws JMSException, IOException {
 
-        sendMessage(pooledConnectionFactory);
-        receiveMessage(connectionFactory);
-
-        pooledConnectionFactory.stop();
-    }
-
-    private static void
-    sendMessage(PooledConnectionFactory pooledConnectionFactory) throws JMSException {
-        // Establish a connection for the producer.
-        final Connection producerConnection = pooledConnectionFactory.createConnection();
+        Connection producerConnection = pooledConnectionFactory.createConnection();
         producerConnection.start();
+        logger.debug("Connection started");
+        Session producerSession = producerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-        // Create a session.
-        final Session producerSession = producerConnection
-                .createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
+        logger.debug("Queue was created");
 
-        // Create a queue named "MyQueue".
-        final Destination producerDestination = producerSession
-                .createQueue("MyQueue");
-
-        // Create a producer from the session to the queue.
-        final MessageProducer producer = producerSession
-                .createProducer(producerDestination);
+        MessageProducer producer = producerSession.createProducer(producerDestination);
         producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
-        // Create a message.
-        final String text = "Hello from Amazon MQ!";
-        final TextMessage producerMessage = producerSession
-                .createTextMessage(text);
 
-        // Send the message.
-        producer.send(producerMessage);
-        System.out.println("Message sent.");
+        int numberOfMessages = Integer.parseInt(new App().readOutputFormat());
+        TextMessage producerMessage;
+        for (int i = 0; i < numberOfMessages; i++) {
+            String messages = messageGenerator.generateMessages().toString();
+            producerMessage = producerSession.createTextMessage(messages);
+            producer.send(producerMessage);
+        }
+        logger.info("Messages sent");
+        closeSession(producer, producerSession, producerConnection);
 
-        // Clean up the producer.
+    }
+
+    private static void closeSession(MessageProducer producer, Session producerSession, Connection producerConnection) throws JMSException {
         producer.close();
         producerSession.close();
         producerConnection.close();
+        logger.info("Connection closed");
     }
 
-    private static void
-    receiveMessage(ActiveMQConnectionFactory connectionFactory) throws JMSException {
-        // Establish a connection for the consumer.
-        // Note: Consumers should not use PooledConnectionFactory.
-        final Connection consumerConnection = connectionFactory.createConnection();
-        consumerConnection.start();
 
-        // Create a session.
-        final Session consumerSession = consumerConnection
-                .createSession(false, Session.AUTO_ACKNOWLEDGE);
-
-        // Create a queue named "MyQueue".
-        final Destination consumerDestination = consumerSession
-                .createQueue("MyQueue");
-
-        // Create a message consumer from the session to the queue.
-        final MessageConsumer consumer = consumerSession
-                .createConsumer(consumerDestination);
-
-        // Begin to wait for messages.
-        final Message consumerMessage = consumer.receive(1000);
-
-        // Receive the message when it arrives.
-        final TextMessage consumerTextMessage = (TextMessage) consumerMessage;
-        System.out.println("Message received: " + consumerTextMessage.getText());
-
-        // Clean up the consumer.
-        consumer.close();
-        consumerSession.close();
-        consumerConnection.close();
-    }
-
-    private static PooledConnectionFactory
-    createPooledConnectionFactory(ActiveMQConnectionFactory connectionFactory) {
-        // Create a pooled connection factory.
-        final PooledConnectionFactory pooledConnectionFactory =
-                new PooledConnectionFactory();
-        pooledConnectionFactory.setConnectionFactory(connectionFactory);
-        pooledConnectionFactory.setMaxConnections(10);
-        return pooledConnectionFactory;
-    }
-
-    private static ActiveMQConnectionFactory createActiveMQConnectionFactory() {
-        // Create a connection factory.
-        final ActiveMQConnectionFactory connectionFactory =
-                new ActiveMQConnectionFactory(BROKER_URL);
-
-        // Pass the sign-in credentials.
-        connectionFactory.setUserName(ACTIVE_MQ_USERNAME);
-        connectionFactory.setPassword(ACTIVE_MQ_PASSWORD);
-        return connectionFactory;
-    }
 }

@@ -1,6 +1,6 @@
 com\thirdTask\Consumer.class
+com\thirdTask\MyMessage.class
 com\thirdTask\FileProcessing.class
 com\thirdTask\Producer.class
-com\thirdTask\Message.class
 com\thirdTask\App.class
 com\thirdTask\MessageGenerator.class

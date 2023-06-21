@@ -4,29 +4,52 @@ import java.io.IOException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class MessageGenerator {
     FileProcessing fileProcessing = new FileProcessing();
-    private final int NAME_MAX_LENGTH = Integer.parseInt(fileProcessing.readProperty("nameMaxLength"));
-    private final int NAME_MIN_LENGTH = Integer.parseInt(fileProcessing.readProperty("nameMinLength"));
-    private final int MAX_YEAR = Integer.parseInt(fileProcessing.readProperty("maxYear"));
-    private final int MIN_YEAR = Integer.parseInt(fileProcessing.readProperty("minYear"));
-    private final int EDDR_LENGTH = Integer.parseInt(fileProcessing.readProperty("eddrLength"));
+
+
+
     private final int A_LETTER = 97;
     private final int LAST_LETTER = 123;
     private final int MAX_MONTH = 12;
     private final int HOURS = 24;
     private final int MIN_SEC = 60;
-
+Properties properties = fileProcessing.loadProperties();
     public MessageGenerator() throws IOException {
     }
 
+    protected MyMessage generateMessages() {
+        MyMessage message = new MyMessage();
+//        List<MyMessage> myMessages = new ArrayList<>();
+        message.setName(textGenerator());
+        message.setCreated_at(generateDataTime());
+        message.setEddr(eddrGenerator());
+        message.setCount(generateNumber());
+//        myMessages.add(message);
+        return message;
+    }
+//    protected List<MyMessage> generateMessages() {
+//        MyMessage message = new MyMessage();
+//        List<MyMessage> myMessages = new ArrayList<>();
+//        message.setName(textGenerator());
+//        message.setCreated_at(generateDataTime());
+//        message.setEddr(eddrGenerator());
+//        message.setCount(generateNumber());
+//        myMessages.add(message);
+//        return myMessages;
+//    }
     protected String textGenerator() {
+        int nameMaxLength = Integer.parseInt(properties.getProperty("nameMaxLength"));
+        int nameMinLength = Integer.parseInt(properties.getProperty("nameMinLength"));
         String text = "";
-        int length = ThreadLocalRandom.current().nextInt(NAME_MIN_LENGTH, NAME_MAX_LENGTH);
+        int length = ThreadLocalRandom.current().nextInt(nameMinLength, nameMaxLength);
         text = ThreadLocalRandom.current()
                 .ints(length - 1, A_LETTER, LAST_LETTER)
                 .mapToObj(codePoint -> String.valueOf((char) codePoint))
@@ -38,16 +61,19 @@ public class MessageGenerator {
     }
 
     protected String eddrGenerator() {
+        int maxYear = Integer.parseInt(properties.getProperty("maxYear"));
+        int minYear = Integer.parseInt(properties.getProperty("minYear"));
+        int eddrLength = Integer.parseInt(properties.getProperty("eddrLength"));
         int lengthOfRandomDigits = 5;
         int monthBirth = Integer.parseInt(generateBirthData(MAX_MONTH + 1));
-        return IntStream.range(0, EDDR_LENGTH - lengthOfRandomDigits)
+        return IntStream.range(0, eddrLength - lengthOfRandomDigits)
                 .mapToObj(i -> {
                     if (i == 0) {
-                        return generateYear();
+                        return generateYear(maxYear, minYear);
                     } else if (i == 1) {
                         return monthBirth + "";
                     } else if (i == 2) {
-                        YearMonth yearMonth = YearMonth.of(MAX_YEAR, monthBirth);
+                        YearMonth yearMonth = YearMonth.of(maxYear, monthBirth);
                         int maxDayOfMonth = yearMonth.lengthOfMonth();
                         return generateBirthData(maxDayOfMonth);
                     } else {
@@ -58,7 +84,9 @@ public class MessageGenerator {
     }
 
     protected String generateDataTime() {
-        int randomYear = ThreadLocalRandom.current().nextInt(MIN_YEAR, MAX_YEAR);
+        int maxYear = Integer.parseInt(properties.getProperty("maxYear"));
+        int minYear = Integer.parseInt(properties.getProperty("minYear"));
+        int randomYear = ThreadLocalRandom.current().nextInt(minYear, maxYear);
         int randomMonth = ThreadLocalRandom.current().nextInt(1, MAX_MONTH + 1);
         YearMonth yearMonth = YearMonth.of(randomYear, randomMonth);
         int maxDayOfMonth = yearMonth.lengthOfMonth();
@@ -88,7 +116,7 @@ public class MessageGenerator {
         return String.format("%02d", randomNum);
     }
 
-    private String generateYear() {
-        return String.valueOf(ThreadLocalRandom.current().nextInt(MIN_YEAR, MAX_YEAR));
+    private String generateYear(int maxYear, int minYear) {
+        return String.valueOf(ThreadLocalRandom.current().nextInt(minYear, maxYear));
     }
 }

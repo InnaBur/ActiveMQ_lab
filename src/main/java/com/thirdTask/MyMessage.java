@@ -63,4 +63,14 @@ public class MyMessage {
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
+
+    @Override
+    public String toString() {
+        return "MyMessage{" +
+                "name='" + name + '\'' +
+                ", eddr='" + eddr + '\'' +
+                ", count=" + count +
+                ", created_at='" + created_at + '\'' +
+                '}';
+    }
 }
