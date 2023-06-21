@@ -51,7 +51,7 @@ public class FileProcessing {
 
     public Properties loadProperties() throws IOException {
         Properties properties = new Properties();
-       try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(FILE_NAME)) {;
+       try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(FILE_NAME)) {
 //        if (inputStream != null) {
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             properties.load(reader);
