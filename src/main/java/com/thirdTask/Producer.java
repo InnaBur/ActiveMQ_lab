@@ -28,7 +28,6 @@ public class Producer extends ConnectionProcessing {
         MessageProducer producer = producerSession.createProducer(producerDestination);
         producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
-
         int numberOfMessages = Integer.parseInt(new App().readOutputFormat());
         TextMessage producerMessage;
         long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
