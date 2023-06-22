@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class FileProcessing {
     private static final Logger logger = LoggerFactory.getLogger(FileProcessing.class);
-    private static final String FILE_NAME = "conf/config.properties";
+    private static final String FILE_NAME = "config.properties";
     private static final String DIR_NAME = "conf/";
 
 //    protected String readProperty(String key) throws IOException {
@@ -49,9 +49,12 @@ public class FileProcessing {
 //        }
 //    }
 
-    public Properties loadProperties() {
+    public Properties loadProperties() throws IOException {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         Properties properties = new Properties();
-       try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(FILE_NAME)) {
+        try (InputStream inputStream = classLoader.getResourceAsStream(FILE_NAME)) {
+
+//       try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(DIR_NAME + FILE_NAME)) {
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             properties.load(reader);
                 logger.debug("Properties were loaded");

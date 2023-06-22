@@ -31,22 +31,30 @@ public class Producer extends ConnectionProcessing {
 
         int numberOfMessages = Integer.parseInt(new App().readOutputFormat());
         TextMessage producerMessage;
-long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
+        long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
         System.out.println("POISON!" + poisonPill);
         LocalTime endTime = start.plusSeconds(poisonPill);
         int count = 0;
-        while (LocalTime.now().isBefore(endTime)) {
+        System.out.println("TIME " + LocalTime.now());
+        System.out.println("TIME END " + endTime);
         for (int i = 0; i < numberOfMessages; i++) {
+            while (LocalTime.now().isBefore(endTime)) {
+
                 String messages = messageGenerator.generateMessages().toString();
                 producerMessage = producerSession.createTextMessage(messages);
                 producer.send(producerMessage);
                 count++;
+                if (numberOfMessages >= count) {
+                    break;
+                }
+
             }
-            if (numberOfMessages == count) {
+            if (!LocalTime.now().isBefore(endTime)) {
                 break;
             }
         }
         logger.info("PoisonPill worked");
+        System.out.println("TIME2 " + LocalTime.now());
         logger.info("{}", count);
         logger.info("Messages sent");
         closeSession(producer, producerSession, producerConnection);

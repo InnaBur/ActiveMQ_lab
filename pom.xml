@@ -143,7 +143,9 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Class-Path>./conf/ ./log/</Class-Path>
+<!--              <Class-Path>./conf/ ./log/</Class-Path>-->
+              <Class-Path>conf/ log/</Class-Path>-->
+<!--              <Class-Path>./config.properties </Class-Path>-->
             </manifestEntries>
             <manifest>
               <addClasspath>true</addClasspath>

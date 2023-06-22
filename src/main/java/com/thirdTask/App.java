@@ -43,7 +43,7 @@ public class App {
         String outputFormat = System.getProperty("N");
         if (outputFormat == null || Integer.parseInt(outputFormat) < 1000) {
             // delete before send !!!!!!!!
-            outputFormat = "1000";
+            outputFormat = "20000";
 //            logger.warn("Output format must be more then 1000");
         }
 
