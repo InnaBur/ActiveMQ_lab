@@ -49,18 +49,19 @@ public class FileProcessing {
 //        }
 //    }
 
-    public Properties loadProperties() throws IOException {
+    public Properties loadProperties() {
         Properties properties = new Properties();
        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(FILE_NAME)) {
-//        if (inputStream != null) {
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             properties.load(reader);
-//            if (properties.getProperty(key) != null) {
                 logger.debug("Properties were loaded");
-//            }
         } catch (IOException e){
             logger.error("Properties out jar were not loaded ");
         }
        return properties;
+    }
+
+    public void cswWriter () {
+
     }
 }
