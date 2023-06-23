@@ -8,8 +8,6 @@ import javax.jms.*;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Properties;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Producer extends ConnectionProcessing {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
@@ -60,7 +58,7 @@ public class Producer extends ConnectionProcessing {
 
     private static void sendMessageToQueue(Session producerSession, MessageProducer producer, MessageGenerator messageGenerator) throws JMSException {
         ObjectMessage producerMessage;
-        MyMessage messages = messageGenerator.generateMessages();
+        MyMessage messages = messageGenerator.generateMessage();
         producerMessage = producerSession.createObjectMessage(messages);
         producer.send(producerMessage);
 

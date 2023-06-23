@@ -23,7 +23,7 @@ Properties properties = fileProcessing.loadProperties();
     public MessageGenerator() throws IOException {
     }
 
-    protected MyMessage generateMessages() {
+    protected MyMessage generateMessage() {
         MyMessage message = new MyMessage();
 //        List<MyMessage> myMessages = new ArrayList<>();
         message.setName(textGenerator());

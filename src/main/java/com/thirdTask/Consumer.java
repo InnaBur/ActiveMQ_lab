@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class Consumer extends ConnectionProcessing {
-    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
+    //    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
     private static final Logger logger = LoggerFactory.getLogger(App.class);
+    MyValidator validator = new MyValidator();
 
     public Consumer() throws IOException {
     }
@@ -32,6 +33,8 @@ public class Consumer extends ConnectionProcessing {
                 .createConsumer(consumerDestination);
         int count = 0;
         ArrayList<MyMessage> l = new ArrayList<>();
+        int val = 0;
+        int er = 0;
         // Begin to wait for messages.
         while (true) {
             final Message consumerMessage = consumer.receive(1000);
@@ -43,7 +46,9 @@ public class Consumer extends ConnectionProcessing {
                 // Get the POJO from the ObjectMessage.
                 ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();
-                writeIntoFile(myMessage);
+                validator.validateMessage(myMessage);
+
+//                writeIntoFile(myMessage);
                 l.add(myMessage);
 //                FileProcessing.writeDataLineByLine(writer, l.get(count).getName(), l.get(count).getCount()+"");
 //                FileProcessing.writeDataLineByLine("valid.csv", name, eddr);
@@ -53,7 +58,7 @@ public class Consumer extends ConnectionProcessing {
             }
             count++;
         }
-        writer.close();
+
         logger.info("Messages received");
 //        for (MyMessage ll: l) {
 //            System.out.println(ll);
@@ -65,13 +70,6 @@ public class Consumer extends ConnectionProcessing {
 
     }
 
-    private void writeIntoFile(MyMessage myMessage) {
-        String name = myMessage.getName();
-        String eddr = myMessage.getEddr();
-
-        String[] messageArray = {name, eddr};
-        writer.writeNext(messageArray);
-    }
 
     private static void closeSession(MessageConsumer consumer, Session consumerSession, Connection consumerConnection) throws JMSException {
         consumer.close();

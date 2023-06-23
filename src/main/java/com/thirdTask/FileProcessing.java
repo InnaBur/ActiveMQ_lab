@@ -18,7 +18,7 @@ public class FileProcessing {
     private static final String[] HEADER_ERROR = {"Name", "Count", "Error"};
     private static final String FILEPATH_VALID = "valid.csv";
     private static final String FILEPATH_ERROR = "error.csv";
-    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
+//    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
 
     public FileProcessing() throws IOException {
     }
@@ -41,6 +41,10 @@ public class FileProcessing {
             logger.error("Properties out jar were not loaded ");
         }
        return properties;
+    }
+
+    public CSVWriter createWriter(String filePath) throws IOException {
+       return new CSVWriter(new FileWriter(filePath, true));
     }
 
     public void createCSV(String filePath,String[] header) {
@@ -73,4 +77,15 @@ public class FileProcessing {
 //            throw new RuntimeException(e);
         }
     }
-   }
+
+
+    public void writeIntoFile(MyMessage myMessage, String filePath) throws IOException {
+        CSVWriter writer = createWriter(filePath);
+        String name = myMessage.getName();
+        String count = myMessage.getCount()+"";
+
+        String[] messageArray = {name, count};
+        writer.writeNext(messageArray);
+    }
+
+}

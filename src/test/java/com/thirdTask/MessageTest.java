@@ -37,33 +37,42 @@ class MessageTest {
 
     @Test
     public void messageIsValid() {
-        MyMessage message = new MyMessage( "abcaefgu", "2000121034567", 20, "2023-06-28T07:15:58");
+        MyMessage message = new MyMessage("abcaefgu", "2000121034567", 20, "2023-06-28T07:15:58");
 
         Set<ConstraintViolation<MyMessage>> constraintViolations =
-                validator.validate( message );
+                validator.validate(message);
 
-        assertEquals( 0, constraintViolations.size() );
+        assertEquals(0, constraintViolations.size());
     }
-        @Test
-        public void checkNameLessThenSevenLetters() {
-            MyMessage message = new MyMessage( "aaa", "0101200033333", 10, "2023");
 
-            Set<ConstraintViolation<MyMessage>> constraintViolations =
-                    validator.validate( message );
+    @Test
+    public void checkNameLessThenSevenLetters() {
+        MyMessage message = new MyMessage("aaa", "0101200033333", 10, "2023");
 
-            assertEquals( 1, constraintViolations.size() );
-            assertEquals( "Name length must be longer then 6 symbols", constraintViolations.iterator().next().getMessage() );
-        }
+        Set<ConstraintViolation<MyMessage>> constraintViolations =
+                validator.validate(message);
+
+        assertEquals(1, constraintViolations.size());
+        assertEquals("Name length must be longer then 6 symbols", constraintViolations.iterator().next().getMessage());
+    }
 
     @Test
     public void testMessageWithNoValues() {
-        MyMessage message = new MyMessage( );
+        MyMessage message = new MyMessage();
 
         Set<ConstraintViolation<MyMessage>> violations = validator.validate(message);
         assertEquals(violations.size(), 4);
     }
 
+    @Test
+    public void testMessageWithWrongCount() {
+        MyMessage message = new MyMessage("aaaaaaa", "2000121034567", 2, "2023-06-28T07:15:58");
 
+        Set<ConstraintViolation<MyMessage>> constraintViolations = validator.validateProperty(message, "count");
+
+        assertEquals(1, constraintViolations.size());
+        assertEquals("Must be more than 9", constraintViolations.iterator().next().getMessage());
+    }
 //        @Test
 //        public void licensePlateTooShort() {
 //            Car car = new Car( "Morris", "D", 4 );
@@ -79,4 +88,4 @@ class MessageTest {
 //        }
 
 
-}
+    }
