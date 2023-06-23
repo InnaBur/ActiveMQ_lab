@@ -1,6 +1,7 @@
 package com.thirdTask;
 
 import com.opencsv.CSVWriter;
+import jakarta.validation.ConstraintViolation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +10,9 @@ import javax.jms.ObjectMessage;
 import javax.jms.TextMessage;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Set;
 
 public class FileProcessing {
     private static final Logger logger = LoggerFactory.getLogger(FileProcessing.class);
@@ -36,18 +39,18 @@ public class FileProcessing {
 //       try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(DIR_NAME + FILE_NAME)) {
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             properties.load(reader);
-                logger.debug("Properties were loaded");
-        } catch (IOException e){
+            logger.debug("Properties were loaded");
+        } catch (IOException e) {
             logger.error("Properties out jar were not loaded ");
         }
-       return properties;
+        return properties;
     }
 
     public CSVWriter createWriter(String filePath) throws IOException {
-       return new CSVWriter(new FileWriter(filePath, true));
+        return new CSVWriter(new FileWriter(filePath, true));
     }
 
-    public void createCSV(String filePath,String[] header) {
+    public void createCSV(String filePath, String[] header) {
         File file = new File(filePath);
         try {
             FileWriter outputFile = new FileWriter(file);
@@ -61,17 +64,14 @@ public class FileProcessing {
         }
     }
 
-        public static void writeDataLineByLine(CSVWriter writer, String name, String eddr)
-    {
+    public static void writeDataLineByLine(CSVWriter writer, String name, String eddr) {
         try {
 
-            String [] messageArray = {name, eddr};
+            String[] messageArray = {name, eddr};
             // add data to csv
             writer.writeNext(messageArray);
-
             writer.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
 //        } catch (JMSException e) {
 //            throw new RuntimeException(e);
@@ -79,13 +79,15 @@ public class FileProcessing {
     }
 
 
-    public void writeIntoFile(MyMessage myMessage, String filePath) throws IOException {
-        CSVWriter writer = createWriter(filePath);
-        String name = myMessage.getName();
-        String count = myMessage.getCount()+"";
-
-        String[] messageArray = {name, count};
-        writer.writeNext(messageArray);
+    public void writeIntoFile(String filePath, String[] data) throws IOException {
+        CSVWriter writer = new CSVWriter(new FileWriter(filePath, true));
+        writer.writeNext(data);
+        writer.close();
     }
 
+    public void writeIntoFileAfterValidation(String filePath, String[] data, Set<ConstraintViolation<MyMessage>> violations) throws IOException {
+
+            writeIntoFile(filePath, data);
+
+    }
 }

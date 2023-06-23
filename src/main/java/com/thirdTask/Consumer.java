@@ -1,6 +1,9 @@
 package com.thirdTask;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVWriter;
+import jakarta.validation.ConstraintViolation;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,7 +12,10 @@ import javax.jms.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Consumer extends ConnectionProcessing {
     //    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
@@ -19,7 +25,7 @@ public class Consumer extends ConnectionProcessing {
     public Consumer() throws IOException {
     }
 
-    protected void receiveMessage(ActiveMQConnectionFactory connectionFactory, Properties properties) throws JMSException, IOException {
+    protected ArrayList<MyMessage> receiveMessage(ActiveMQConnectionFactory connectionFactory, Properties properties) throws JMSException, IOException {
         FileProcessing fileProcessing = new FileProcessing();
 
         Connection consumerConnection = connectionFactory.createConnection();
@@ -32,7 +38,7 @@ public class Consumer extends ConnectionProcessing {
         final MessageConsumer consumer = consumerSession
                 .createConsumer(consumerDestination);
         int count = 0;
-        ArrayList<MyMessage> l = new ArrayList<>();
+        ArrayList<MyMessage> messagesList = new ArrayList<>();
         int val = 0;
         int er = 0;
         // Begin to wait for messages.
@@ -46,11 +52,13 @@ public class Consumer extends ConnectionProcessing {
                 // Get the POJO from the ObjectMessage.
                 ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();
-                validator.validateMessage(myMessage);
+//                validateMyMessage(myMessage);
+//                fileProcessing.writeIntoFileAfterValidation("error.csv", dataValid(myMessage), validator.validateMessage(myMessage));
+
 
 //                writeIntoFile(myMessage);
-                l.add(myMessage);
-//                FileProcessing.writeDataLineByLine(writer, l.get(count).getName(), l.get(count).getCount()+"");
+                messagesList.add(myMessage);
+//                FileProcessing.writeDataLineByLine(writer, messagesList.get(count).getName(), messagesList.get(count).getCount()+"");
 //                FileProcessing.writeDataLineByLine("valid.csv", name, eddr);
 
             } else {
@@ -60,16 +68,53 @@ public class Consumer extends ConnectionProcessing {
         }
 
         logger.info("Messages received");
-//        for (MyMessage ll: l) {
+//        for (MyMessage ll: messagesList) {
 //            System.out.println(ll);
 //            FileProcessing.writeDataLineByLine(writer, ll.getName(), ll.getCount()+"");
 //
 //        }
         logger.info("received" + count);
         closeSession(consumer, consumerSession, consumerConnection);
+        return messagesList;
+    }
+
+    private void validateMyMessage(MyMessage myMessage) throws IOException {
+        String name = myMessage.getName();
+        String countField = myMessage.getCount() + "";
+
+        String[] messageArray = {name, countField};
+        validator.validateMessage(myMessage);
+    }
+
+    public String[] dataValid(MyMessage myMessage) throws IOException {
+        String name = myMessage.getName();
+        String countField = myMessage.getCount() + "";
+
+        return new String[]{name, countField};
 
     }
 
+    public String[] dataInvalid(MyMessage myMessage, Set<ConstraintViolation<MyMessage>> validateMessage) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String name = myMessage.getName();
+        String countField = myMessage.getCount() + "";
+//        ArrayList<String> errorList = new ArrayList<>();
+//        for (ConstraintViolation<MyMessage> m : validateMessage) {
+//            String errorString = objectMapper.writeValueAsString(m);
+//            errorList.add(errorString);
+//        }
+
+        List<String> err = validateMessage.stream().
+                map(validate -> validate.getMessage())
+                        .collect(Collectors.toList());
+
+        String errors = objectMapper.writeValueAsString(err);
+
+
+
+        return new String[]{name, countField, errors};
+
+    }
 
     private static void closeSession(MessageConsumer consumer, Session consumerSession, Connection consumerConnection) throws JMSException {
         consumer.close();

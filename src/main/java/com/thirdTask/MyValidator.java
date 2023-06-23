@@ -1,5 +1,7 @@
 package com.thirdTask;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -22,17 +24,21 @@ public class MyValidator {
     public MyValidator() throws IOException {
     }
 
-    protected void validateMessage(MyMessage message) throws IOException {
-        Set<ConstraintViolation<MyMessage>> violations = validator.validate(message);
+    protected Set<ConstraintViolation<MyMessage>> validateMessage(MyMessage message) {
+//        Set<ConstraintViolation<MyMessage>> violations = validator.validate(message);
+return validator.validate(message);
 
-        if (violations.size() == 0) {
-            fileProcessing.writeIntoFile(message, "valid.csv");
-            System.out.println("valid");
-        } else {
-            fileProcessing.writeIntoFile(message, "error.csv");
-            System.out.println("NO");
-        }
 
     }
 
+    protected String getErrorMessages(Set<ConstraintViolation<MyMessage>> constraintViolations) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = "";
+        ArrayList<String> errors = new ArrayList<>();
+             for (ConstraintViolation<MyMessage> constraintViolation : constraintViolations) {
+                 errors.add(constraintViolations.iterator().next().getMessage());
+                 json = objectMapper.writeValueAsString(errors);
+             }
+       return json;
+    }
 }
