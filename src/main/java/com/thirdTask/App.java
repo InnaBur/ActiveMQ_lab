@@ -15,10 +15,12 @@ public class App {
 
     public static void main(String[] args) throws IOException, JMSException {
         logger.debug("Start");
+
 //        Properties properties = new Properties();
         FileProcessing fileProcessing = new FileProcessing();
-
+        fileProcessing.createCSVFiles();
         Properties properties = fileProcessing.loadProperties();
+        Consumer consumer = new Consumer();
 
         logger.info(new App().readOutputFormat());
         logger.info(properties.getProperty("password"));
@@ -27,15 +29,12 @@ public class App {
         ActiveMQConnectionFactory connectionFactory = Producer.createActiveMQConnectionFactory(properties);
         PooledConnectionFactory pooledConnectionFactory = Producer.createPooledConnectionFactory(connectionFactory);
         Producer.sendMessage(pooledConnectionFactory, messageGenerator, properties);
-        Consumer.receiveMessage(connectionFactory, properties);
+        consumer.receiveMessage(connectionFactory, properties);
 
         pooledConnectionFactory.stop();
 
 
         logger.debug("Finish");
-
-
-//        @CreditCardNumber(ignoreNonDigitCharacters = true)
 
     }
 
@@ -43,7 +42,7 @@ public class App {
         String outputFormat = System.getProperty("N");
         if (outputFormat == null || Integer.parseInt(outputFormat) < 1000) {
             // delete before send !!!!!!!!
-            outputFormat = "20000";
+            outputFormat = "5";
 //            logger.warn("Output format must be more then 1000");
         }
 

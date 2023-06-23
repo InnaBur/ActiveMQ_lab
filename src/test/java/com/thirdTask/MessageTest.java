@@ -35,16 +35,34 @@ class MessageTest {
 ////        assertEquals("must not be null", constraintViolations.iterator().next().getMessage());
 //    }
 
-//        @Test
-//        public void manufacturerIsNull() {
-//            Message message = new Message( "aaaaaaa", "1234567891234", 10, Data.class);
-//
-//            Set<ConstraintViolation<Car>> constraintViolations =
-//                    validator.validate( car );
-//
-//            assertEquals( 1, constraintViolations.size() );
-//            assertEquals( "must not be null", constraintViolations.iterator().next().getMessage() );
-//        }
+    @Test
+    public void messageIsValid() {
+        MyMessage message = new MyMessage( "abcaefgu", "2000121034567", 20, "2023-06-28T07:15:58");
+
+        Set<ConstraintViolation<MyMessage>> constraintViolations =
+                validator.validate( message );
+
+        assertEquals( 0, constraintViolations.size() );
+    }
+        @Test
+        public void checkNameLessThenSevenLetters() {
+            MyMessage message = new MyMessage( "aaa", "0101200033333", 10, "2023");
+
+            Set<ConstraintViolation<MyMessage>> constraintViolations =
+                    validator.validate( message );
+
+            assertEquals( 1, constraintViolations.size() );
+            assertEquals( "Name length must be longer then 6 symbols", constraintViolations.iterator().next().getMessage() );
+        }
+
+    @Test
+    public void testMessageWithNoValues() {
+        MyMessage message = new MyMessage( );
+
+        Set<ConstraintViolation<MyMessage>> violations = validator.validate(message);
+        assertEquals(violations.size(), 4);
+    }
+
 
 //        @Test
 //        public void licensePlateTooShort() {

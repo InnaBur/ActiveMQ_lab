@@ -4,22 +4,22 @@ package com.thirdTask;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import java.io.Serializable;
 
-public class MyMessage {
 
-    @NotNull
+public class MyMessage implements Serializable {
+
+    @NotNull (message = "You need to input a name")
     @Size(min = 7,message = "Name length must be longer then 6 symbols")
     @Pattern(regexp = ".*a.*", message = "Must be at least one letter 'а'")
     private String name;
 
-    @NotNull
+    @NotNull (message = "You need to input an eddr")
     @Size(min = 13, max = 14)
-    @CreditCardNumber(ignoreNonDigitCharacters = true)
     private String eddr;
-    @NotNull
-    @Size(min = 10, message = "Must be more than 9")
+    @Min(value = 10, message = "Must be more than 9")
     private int count;
-    @NotNull
+    @NotNull (message = "Date can not be null")
     private String created_at;
 
     public MyMessage() {
@@ -32,7 +32,8 @@ public class MyMessage {
         this.created_at = created_at;
     }
 
-    public String getName() {
+
+public String getName() {
         return name;
     }
 
@@ -73,4 +74,6 @@ public class MyMessage {
                 ", created_at='" + created_at + '\'' +
                 '}';
     }
+
+
 }

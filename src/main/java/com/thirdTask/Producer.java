@@ -21,15 +21,15 @@ public class Producer extends ConnectionProcessing {
         producerConnection.start();
         logger.debug("Connection started");
         Session producerSession = producerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+//
+//        Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
+//        logger.debug("Queue was created");
 
-        Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
-        logger.debug("Queue was created");
-
-        MessageProducer producer = producerSession.createProducer(producerDestination);
+        MessageProducer producer = createProducer(producerConnection, properties, producerSession);
         producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
         int numberOfMessages = Integer.parseInt(new App().readOutputFormat());
-        TextMessage producerMessage;
+
         long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
         System.out.println("POISON!" + poisonPill);
         LocalTime endTime = start.plusSeconds(poisonPill);
@@ -37,18 +37,16 @@ public class Producer extends ConnectionProcessing {
         System.out.println("TIME " + LocalTime.now());
         System.out.println("TIME END " + endTime);
         for (int i = 0; i < numberOfMessages; i++) {
-            while (LocalTime.now().isBefore(endTime)) {
 
-                String messages = messageGenerator.generateMessages().toString();
-                producerMessage = producerSession.createTextMessage(messages);
-                producer.send(producerMessage);
+            while (isNotPoisonPill(endTime)) {
+                sendMessageToQueue(producerSession, producer, messageGenerator);
                 count++;
                 if (numberOfMessages >= count) {
                     break;
                 }
 
             }
-            if (!LocalTime.now().isBefore(endTime)) {
+            if (!isNotPoisonPill(endTime)) {
                 break;
             }
         }
@@ -58,6 +56,28 @@ public class Producer extends ConnectionProcessing {
         logger.info("Messages sent");
         closeSession(producer, producerSession, producerConnection);
 
+    }
+
+    private static void sendMessageToQueue(Session producerSession, MessageProducer producer, MessageGenerator messageGenerator) throws JMSException {
+        ObjectMessage producerMessage;
+        MyMessage messages = messageGenerator.generateMessages();
+        producerMessage = producerSession.createObjectMessage(messages);
+        producer.send(producerMessage);
+
+
+    }
+
+    private static boolean isNotPoisonPill(LocalTime endTime) {
+        return LocalTime.now().isBefore(endTime);
+    }
+
+    private static MessageProducer createProducer(Connection producerConnection, Properties properties, Session producerSession) throws JMSException {
+
+
+        Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
+        logger.debug("Queue was created");
+
+        return producerSession.createProducer(producerDestination);
     }
 
     private static void closeSession(MessageProducer producer, Session producerSession, Connection producerConnection) throws JMSException {

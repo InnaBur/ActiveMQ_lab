@@ -1,18 +1,26 @@
 package com.thirdTask;
 
+import com.opencsv.CSVWriter;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Consumer extends ConnectionProcessing {
+    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
-    protected static void receiveMessage(ActiveMQConnectionFactory connectionFactory, Properties properties) throws JMSException, IOException {
+    public Consumer() throws IOException {
+    }
+
+    protected void receiveMessage(ActiveMQConnectionFactory connectionFactory, Properties properties) throws JMSException, IOException {
         FileProcessing fileProcessing = new FileProcessing();
+
         Connection consumerConnection = connectionFactory.createConnection();
         consumerConnection.start();
         Session consumerSession = consumerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -22,20 +30,47 @@ public class Consumer extends ConnectionProcessing {
         // Create a message consumer from the session to the queue.
         final MessageConsumer consumer = consumerSession
                 .createConsumer(consumerDestination);
-
+        int count = 0;
+        ArrayList<MyMessage> l = new ArrayList<>();
         // Begin to wait for messages.
         while (true) {
             final Message consumerMessage = consumer.receive(1000);
-            if (consumerMessage instanceof TextMessage) {
+            if (consumerMessage instanceof ObjectMessage) {
+//                MyMessage c = (MyMessage) (consumerMessage);
+//                String name = c.getName();
+//                int counte = c.getCount();
+                System.out.println("MEs" + consumerMessage);
                 // Get the POJO from the ObjectMessage.
-                TextMessage consumerTextMessage = (TextMessage) consumerMessage;
+                ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
+                MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();
+                writeIntoFile(myMessage);
+                l.add(myMessage);
+//                FileProcessing.writeDataLineByLine(writer, l.get(count).getName(), l.get(count).getCount()+"");
+//                FileProcessing.writeDataLineByLine("valid.csv", name, eddr);
+
             } else {
                 break;
             }
+            count++;
         }
+        writer.close();
         logger.info("Messages received");
+//        for (MyMessage ll: l) {
+//            System.out.println(ll);
+//            FileProcessing.writeDataLineByLine(writer, ll.getName(), ll.getCount()+"");
+//
+//        }
+        logger.info("received" + count);
         closeSession(consumer, consumerSession, consumerConnection);
 
+    }
+
+    private void writeIntoFile(MyMessage myMessage) {
+        String name = myMessage.getName();
+        String eddr = myMessage.getEddr();
+
+        String[] messageArray = {name, eddr};
+        writer.writeNext(messageArray);
     }
 
     private static void closeSession(MessageConsumer consumer, Session consumerSession, Connection consumerConnection) throws JMSException {
