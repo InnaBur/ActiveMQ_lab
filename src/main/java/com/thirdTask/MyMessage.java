@@ -1,21 +1,18 @@
 package com.thirdTask;
 
-
 import jakarta.validation.constraints.*;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 import java.io.Serializable;
-
 
 public class MyMessage implements Serializable {
 
     @NotNull(message = "You need to input a name")
     @Size(min = 7, message = "Name length must be longer then 6 symbols")
-    @Pattern(regexp = ".*a.*", message = "Must be at least one letter 'а'")
+    @Pattern(regexp = "^A?.*a.*", message = "Must be at least one letter 'а'")
     private String name;
 
     @NotNull(message = "You need to input an eddr")
-    @Size(min = 13, max = 14)
+    @Size(min = 13, max = 14, message = "EDDR must be 13 or 14 symbols long")
     @ControlDigit
     private String eddr;
     @Min(value = 10, message = "Must be more than 9")
@@ -79,6 +76,4 @@ public class MyMessage implements Serializable {
                 ", created_at='" + created_at + '\'' +
                 '}';
     }
-
-
 }

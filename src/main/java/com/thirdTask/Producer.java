@@ -5,16 +5,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Properties;
 
 public class Producer extends ConnectionProcessing {
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
+    private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 
 
-    protected static void createProducerAndSendMessage(PooledConnectionFactory pooledConnectionFactory, MessageGenerator messageGenerator, Properties properties) throws JMSException, IOException {
-
+    protected static void createProducerAndSendMessage(PooledConnectionFactory pooledConnectionFactory,
+                                                       MessageGenerator messageGenerator,
+                                                       Properties properties) throws JMSException{
 
         Connection producerConnection = pooledConnectionFactory.createConnection();
         producerConnection.start();
@@ -29,7 +29,9 @@ public class Producer extends ConnectionProcessing {
 
     }
 
-    private  static void sendMessage(Session producerSession, MessageProducer producer, MessageGenerator messageGenerator, Properties properties) throws JMSException {
+    private  static void sendMessage(Session producerSession, MessageProducer producer,
+                                     MessageGenerator messageGenerator, Properties properties) throws JMSException {
+
         DataProcessing dataProcessing = new DataProcessing();
         LocalTime start = LocalTime.now();
         int numberOfMessages = Integer.parseInt(dataProcessing.readOutputFormat());

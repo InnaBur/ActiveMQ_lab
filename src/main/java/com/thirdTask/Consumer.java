@@ -41,8 +41,6 @@ public class Consumer extends ConnectionProcessing {
         return messagesList;
     }
 
-
-
     private static void closeSession(MessageConsumer consumer, Session consumerSession, Connection consumerConnection) throws JMSException {
         consumer.close();
         consumerSession.close();

@@ -14,8 +14,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 public @interface ControlDigit {
 
-        String message() default "{com.thirdTask.ControlSum." +
-                "Checksum is wrong}";
+        String message() default "Checksum is wrong";
 
         Class<?>[] groups() default { };
 

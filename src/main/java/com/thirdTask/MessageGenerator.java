@@ -31,16 +31,7 @@ Properties properties = fileProcessing.loadProperties();
         message.setCount(generateNumber());
         return message;
     }
-//    protected List<MyMessage> generateMessages() {
-//        MyMessage message = new MyMessage();
-//        List<MyMessage> myMessages = new ArrayList<>();
-//        message.setName(textGenerator());
-//        message.setCreated_at(generateDataTime());
-//        message.setEddr(eddrGenerator());
-//        message.setCount(generateNumber());
-//        myMessages.add(message);
-//        return myMessages;
-//    }
+
     protected String textGenerator() {
         int nameMaxLength = Integer.parseInt(properties.getProperty("nameMaxLength"));
         int nameMinLength = Integer.parseInt(properties.getProperty("nameMinLength"));
@@ -67,7 +58,7 @@ Properties properties = fileProcessing.loadProperties();
                     if (i == 0) {
                         return generateYear(maxYear, minYear);
                     } else if (i == 1) {
-                        return monthBirth + "";
+                        return String.format("%02d",monthBirth);
                     } else if (i == 2) {
                         YearMonth yearMonth = YearMonth.of(maxYear, monthBirth);
                         int maxDayOfMonth = yearMonth.lengthOfMonth();

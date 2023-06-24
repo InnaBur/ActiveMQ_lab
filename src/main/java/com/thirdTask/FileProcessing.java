@@ -1,21 +1,15 @@
 package com.thirdTask;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVWriter;
 import jakarta.validation.ConstraintViolation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jms.JMSException;
-import javax.jms.ObjectMessage;
-import javax.jms.TextMessage;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class FileProcessing {
     private static final Logger logger = LoggerFactory.getLogger(FileProcessing.class);
@@ -34,12 +28,12 @@ public class FileProcessing {
         createCSV(FILEPATH_ERROR, HEADER_ERROR);
     }
 
-    public Properties loadProperties() throws IOException {
+    public Properties loadProperties() {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         Properties properties = new Properties();
         try (InputStream inputStream = classLoader.getResourceAsStream(FILE_NAME)) {
 
-//       try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(DIR_NAME + FILE_NAME)) {
+            assert inputStream != null;
             InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             properties.load(reader);
             logger.debug("Properties were loaded");
@@ -47,10 +41,6 @@ public class FileProcessing {
             logger.error("Properties out jar were not loaded ");
         }
         return properties;
-    }
-
-    public CSVWriter createWriter(String filePath) throws IOException {
-        return new CSVWriter(new FileWriter(filePath, true));
     }
 
     public void createCSV(String filePath, String[] header) {
@@ -67,44 +57,27 @@ public class FileProcessing {
         }
     }
 
-    public static void writeDataLineByLine(CSVWriter writer, String name, String eddr) {
-        try {
-
-            String[] messageArray = {name, eddr};
-            // add data to csv
-            writer.writeNext(messageArray);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-//        } catch (JMSException e) {
-//            throw new RuntimeException(e);
-        }
-    }
-
-
     public void writeIntoFile(String filePath, String[] data) throws IOException {
         CSVWriter writer = new CSVWriter(new FileWriter(filePath, true));
         writer.writeNext(data);
         writer.close();
     }
 
-
-
-    protected void writeInFilesAfterValidation(List<MyMessage> recievedMessages, MyValidator myValidator) throws IOException {
+    protected void writeInFilesAfterValidation(List<MyMessage> receivedMessages, MyValidator myValidator) throws IOException {
         int countValid = 0;
         int countInvalid = 0;
-        for (MyMessage message : recievedMessages) {
+        for (MyMessage message : receivedMessages) {
             Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
-            if (validateMessage.size() == 0) {
-                writeIntoFile("valid.csv", dataProcessing.dataValid(message));
+            if (validateMessage.isEmpty()) {
+                writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
                 countValid++;
             } else {
-                writeIntoFile("error.csv", dataProcessing.dataInvalid(message, validateMessage));
+                writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
                 countInvalid++;
             }
         }
-        System.out.println("Count of valid messages: " + countValid);
-        System.out.println("Count of invalid messages: " + countInvalid);
+        logger.debug("Count of valid messages: {}", countValid);
+        logger.debug("Count of invalid messages: {}", countInvalid);
     }
 
 

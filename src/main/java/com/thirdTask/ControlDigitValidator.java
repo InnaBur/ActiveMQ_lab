@@ -4,9 +4,12 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.List;
 
-public class ControlDigitValidator implements ConstraintValidator<ControlDigit, String>  {
+public class ControlDigitValidator implements ConstraintValidator<ControlDigit, String> {
+
+    static final int SEVEN = 7;
+    static final int THREE = 3;
 
     @Override
     public void initialize(ControlDigit constraintAnnotation) {
@@ -15,23 +18,34 @@ public class ControlDigitValidator implements ConstraintValidator<ControlDigit, 
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-//        long eddr = Long.parseLong(s);
-        ArrayList<Integer> digits = new ArrayList<>();
-        for (int i = 0; i < s.length(); i++) {
-            int digit = Integer.parseInt(String.valueOf(s.charAt(i)));
-            if (i % 3 == 0) {
-                digits.add(digit * 7);
-            } else if (i == 1 || i == 4 || i == 7 || i == 10 || i == 13) {
-                digits.add(digit * 3);
-            } else {
-                digits.add(digit * 1);
+        int controlDigit = 0;
+        if (s != null) {
+            List<Integer> digits = new ArrayList<>();
+            for (int i = 0; i < s.length(); i++) {
+                int digit = Integer.parseInt(String.valueOf(s.charAt(i)));
+                if (digitShouldMultiplyOnSeven(i)) {
+                    digits.add(digit * SEVEN);
+                } else if (digitShouldMultiplyOnThree(i)) {
+                    digits.add(digit * THREE);
+                } else {
+                    digits.add(digit);
+                }
             }
+            controlDigit = digits.stream().
+                    mapToInt(Integer::intValue).sum() % 10;
+            return Integer.parseInt(String.valueOf(s.charAt(s.length() - 1))) == controlDigit;
         }
-        int controlDigit = digits.stream().
-                mapToInt(Integer::intValue).sum() % 10;
-if (Integer.parseInt(String.valueOf(s.charAt(s.length()-1))) == controlDigit) {
-    return true;
+        else {
+            return false;
         }
-        return false;
+
+    }
+
+    private boolean digitShouldMultiplyOnThree(int i) {
+        return i == 1 || i == 4 || i == 7 || i == 10 || i == 13;
+    }
+
+    private boolean digitShouldMultiplyOnSeven(int i) {
+        return i % THREE == 0;
     }
 }
