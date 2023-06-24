@@ -9,17 +9,18 @@ import java.io.Serializable;
 
 public class MyMessage implements Serializable {
 
-    @NotNull (message = "You need to input a name")
-    @Size(min = 7,message = "Name length must be longer then 6 symbols")
+    @NotNull(message = "You need to input a name")
+    @Size(min = 7, message = "Name length must be longer then 6 symbols")
     @Pattern(regexp = ".*a.*", message = "Must be at least one letter 'а'")
     private String name;
 
-    @NotNull (message = "You need to input an eddr")
+    @NotNull(message = "You need to input an eddr")
     @Size(min = 13, max = 14)
+    @ControlDigit
     private String eddr;
     @Min(value = 10, message = "Must be more than 9")
     private int count;
-    @NotNull (message = "Date can not be null")
+    @NotNull(message = "Date can not be null")
     private String created_at;
 
     public MyMessage() {
@@ -33,7 +34,7 @@ public class MyMessage implements Serializable {
     }
 
 
-public String getName() {
+    public String getName() {
         return name;
     }
 
@@ -46,7 +47,11 @@ public String getName() {
     }
 
     public void setEddr(String eddr) {
-        this.eddr = eddr;
+        if (eddr.charAt(8)=='-') {
+            this.eddr = eddr.replace("-", "");
+        } else {
+            this.eddr = eddr;
+        }
     }
 
     public int getCount() {

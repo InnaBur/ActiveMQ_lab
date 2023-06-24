@@ -1,5 +1,6 @@
 package com.thirdTask;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVWriter;
 import jakarta.validation.ConstraintViolation;
 import org.slf4j.Logger;
@@ -11,8 +12,10 @@ import javax.jms.TextMessage;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FileProcessing {
     private static final Logger logger = LoggerFactory.getLogger(FileProcessing.class);
@@ -21,7 +24,7 @@ public class FileProcessing {
     private static final String[] HEADER_ERROR = {"Name", "Count", "Error"};
     private static final String FILEPATH_VALID = "valid.csv";
     private static final String FILEPATH_ERROR = "error.csv";
-//    CSVWriter writer = new CSVWriter(new FileWriter("valid.csv", true));
+    DataProcessing dataProcessing = new DataProcessing();
 
     public FileProcessing() throws IOException {
     }
@@ -85,9 +88,24 @@ public class FileProcessing {
         writer.close();
     }
 
-    public void writeIntoFileAfterValidation(String filePath, String[] data, Set<ConstraintViolation<MyMessage>> violations) throws IOException {
 
-            writeIntoFile(filePath, data);
 
+    protected void writeInFilesAfterValidation(List<MyMessage> recievedMessages, MyValidator myValidator) throws IOException {
+        int countValid = 0;
+        int countInvalid = 0;
+        for (MyMessage message : recievedMessages) {
+            Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
+            if (validateMessage.size() == 0) {
+                writeIntoFile("valid.csv", dataProcessing.dataValid(message));
+                countValid++;
+            } else {
+                writeIntoFile("error.csv", dataProcessing.dataInvalid(message, validateMessage));
+                countInvalid++;
+            }
+        }
+        System.out.println("Count of valid messages: " + countValid);
+        System.out.println("Count of invalid messages: " + countInvalid);
     }
+
+
 }

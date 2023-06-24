@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 public class MessageGenerator {
     FileProcessing fileProcessing = new FileProcessing();
-
+    DataProcessing dataProcessing = new DataProcessing();
 
 
     private final int A_LETTER = 97;
@@ -25,12 +25,10 @@ Properties properties = fileProcessing.loadProperties();
 
     protected MyMessage generateMessage() {
         MyMessage message = new MyMessage();
-//        List<MyMessage> myMessages = new ArrayList<>();
         message.setName(textGenerator());
         message.setCreated_at(generateDataTime());
         message.setEddr(eddrGenerator());
         message.setCount(generateNumber());
-//        myMessages.add(message);
         return message;
     }
 //    protected List<MyMessage> generateMessages() {
@@ -75,7 +73,7 @@ Properties properties = fileProcessing.loadProperties();
                         int maxDayOfMonth = yearMonth.lengthOfMonth();
                         return generateBirthData(maxDayOfMonth);
                     } else {
-                        return String.valueOf(ThreadLocalRandom.current().nextInt(0, 9));
+                        return String.valueOf(ThreadLocalRandom.current().nextInt(1, 9));
                     }
                 })
                 .collect(Collectors.joining());
@@ -105,7 +103,7 @@ Properties properties = fileProcessing.loadProperties();
     }
 
     protected int generateNumber() {
-        int countMax = Integer.parseInt(new App().readOutputFormat());
+        int countMax = Integer.parseInt(dataProcessing.readOutputFormat());
         return ThreadLocalRandom.current().nextInt(countMax);
     }
 
