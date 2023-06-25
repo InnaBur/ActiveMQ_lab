@@ -2,7 +2,6 @@ package com.thirdTask;
 
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DataProcessingTest {
