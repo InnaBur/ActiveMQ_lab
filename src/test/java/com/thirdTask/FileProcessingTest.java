@@ -1,10 +1,8 @@
 package com.thirdTask;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.Properties;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileProcessingTest {
