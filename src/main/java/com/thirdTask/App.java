@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.jms.JMSException;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Properties;
 
@@ -24,6 +26,7 @@ public class App {
 
         fileProcessing.createCSVFiles();
         Properties properties = fileProcessing.loadProperties();
+
 
         ActiveMQConnectionFactory connectionFactory = Producer.createActiveMQConnectionFactory(properties);
         PooledConnectionFactory pooledConnectionFactory = Producer.createPooledConnectionFactory(connectionFactory);

@@ -18,8 +18,9 @@ public class DataProcessing {
     public String readOutputFormat() {
         String outputFormat = System.getProperty("N");
         if (outputFormat == null || Integer.parseInt(outputFormat) < 1000) {
-            logger.error("Output format must be more than 1000");
-            System.exit(1);
+            outputFormat = "100000";
+//            logger.error("Output format must be more than 1000");
+//            System.exit(1);
         }
         return outputFormat;
     }
