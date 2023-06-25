@@ -25,7 +25,7 @@ public class Consumer extends ConnectionProcessing {
         List<MyMessage> messagesList = new ArrayList<>();
 
         while (true) {
-            Message consumerMessage = consumer.receive(1000);
+            Message consumerMessage = consumer.receive(2000);
             if (consumerMessage instanceof ObjectMessage) {
                 ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();

@@ -2351,3 +2351,101 @@
 25.06.2023 17:48:32.851 [main] DEBUG c.t.FileProcessing - Count of valid messages: 812
 25.06.2023 17:48:32.852 [main] DEBUG c.t.FileProcessing - Count of invalid messages: 33724
 25.06.2023 17:48:32.852 [main] DEBUG com.thirdTask.App - Finish
+25.06.2023 18:23:21.772 [main] DEBUG com.thirdTask.App - Start
+25.06.2023 18:23:21.778 [main] DEBUG c.t.FileProcessing - Properties were loaded
+25.06.2023 18:23:21.819 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 18:23:21.820 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 18:23:21.826 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 18:23:21.827 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 18:23:21.827 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 18:23:21.827 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 18:23:21.830 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 18:23:21.857 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 18:23:21.966 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 18:23:21.973 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 18:23:21.973 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 18:23:21.973 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 18:23:21.973 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 18:23:21.973 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 18:23:22.024 [main] INFO  c.t.FileProcessing - File valid.csv created
+25.06.2023 18:23:22.027 [main] INFO  c.t.FileProcessing - File error.csv created
+25.06.2023 18:23:22.028 [main] DEBUG c.t.FileProcessing - Properties were loaded
+25.06.2023 18:23:22.657 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 18:23:22.991 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 18:23:22.995 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 18:23:22.997 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+25.06.2023 18:23:22.998 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+25.06.2023 18:23:23.119 [main] DEBUG c.thirdTask.Producer - Connection started
+25.06.2023 18:23:23.147 [main] DEBUG c.thirdTask.Producer - Queue was created
+25.06.2023 18:23:23.153 [main] DEBUG c.thirdTask.Producer - Time start 18:23:23.153913200
+25.06.2023 18:23:23.153 [main] DEBUG c.thirdTask.Producer - Estimated time end 18:24:03.153913200 
+25.06.2023 18:23:43.014 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10015 ms elapsed since last write check.
+25.06.2023 18:23:53.020 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10006 ms elapsed since last write check.
+25.06.2023 18:24:03.014 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30015 ms elapsed since last read check.
+25.06.2023 18:24:03.029 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10009 ms elapsed since last write check.
+25.06.2023 18:24:03.161 [main] INFO  c.thirdTask.Producer - PoisonPill worked
+25.06.2023 18:24:03.161 [main] INFO  c.thirdTask.Producer - Messages sent
+25.06.2023 18:24:03.161 [main] DEBUG c.thirdTask.Producer - Sent 49148 messages
+25.06.2023 18:24:03.162 [main] INFO  c.thirdTask.Producer - Connection closed
+25.06.2023 18:24:03.220 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 18:24:03.500 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 18:24:03.501 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 18:24:03.502 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+25.06.2023 18:24:03.503 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+25.06.2023 18:24:03.812 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@548a20ad[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+25.06.2023 18:24:13.042 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10013 ms elapsed since last write check.
+25.06.2023 18:24:23.047 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10005 ms elapsed since last write check.
+25.06.2023 18:24:23.048 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:24:23.517 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10007 ms elapsed since last write check.
+25.06.2023 18:24:33.022 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30008 ms elapsed since last read check.
+25.06.2023 18:24:33.054 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10007 ms elapsed since last write check.
+25.06.2023 18:24:33.055 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:24:33.519 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10002 ms elapsed since last write check.
+25.06.2023 18:24:43.059 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10005 ms elapsed since last write check.
+25.06.2023 18:24:43.060 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:24:43.525 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10006 ms elapsed since last write check.
+25.06.2023 18:24:43.525 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30015 ms elapsed since last read check.
+25.06.2023 18:24:53.060 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10001 ms elapsed since last write check.
+25.06.2023 18:24:53.060 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:24:53.525 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10000 ms elapsed since last write check.
+25.06.2023 18:25:03.031 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30009 ms elapsed since last read check.
+25.06.2023 18:25:03.062 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10002 ms elapsed since last write check.
+25.06.2023 18:25:03.062 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:25:03.528 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10003 ms elapsed since last write check.
+25.06.2023 18:25:13.073 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10011 ms elapsed since last write check.
+25.06.2023 18:25:13.073 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:25:13.527 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30002 ms elapsed since last read check.
+25.06.2023 18:25:13.543 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10015 ms elapsed since last write check.
+25.06.2023 18:25:23.079 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10006 ms elapsed since last write check.
+25.06.2023 18:25:23.081 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:25:23.546 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10003 ms elapsed since last write check.
+25.06.2023 18:25:33.035 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30004 ms elapsed since last read check.
+25.06.2023 18:25:33.082 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10003 ms elapsed since last write check.
+25.06.2023 18:25:33.083 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:25:33.561 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10015 ms elapsed since last write check.
+25.06.2023 18:25:43.098 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10016 ms elapsed since last write check.
+25.06.2023 18:25:43.099 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:25:43.532 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30005 ms elapsed since last read check.
+25.06.2023 18:25:43.563 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10002 ms elapsed since last write check.
+25.06.2023 18:25:53.111 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10013 ms elapsed since last write check.
+25.06.2023 18:25:53.112 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:25:53.577 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10014 ms elapsed since last write check.
+25.06.2023 18:26:03.046 [ActiveMQ InactivityMonitor ReadCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - 30011 ms elapsed since last read check.
+25.06.2023 18:26:03.124 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10013 ms elapsed since last write check.
+25.06.2023 18:26:03.124 [ActiveMQ InactivityMonitor Worker] DEBUG o.a.a.t.AbstractInactivityMonitor - Running WriteCheck[tcp://3.78.234.120:61617]
+25.06.2023 18:26:03.590 [ActiveMQ InactivityMonitor WriteCheckTimer] DEBUG o.a.a.t.AbstractInactivityMonitor - WriteChecker 10013 ms elapsed since last write check.
+25.06.2023 18:26:07.893 [main] INFO  c.thirdTask.Consumer - Received 283646 messages
+25.06.2023 18:26:07.896 [main] DEBUG o.a.a.ActiveMQMessageConsumer - remove: ID:DESKTOP-GT5B82O-64764-1687710202421-1:2:1:1, lastDeliveredSequenceId:3873552
+25.06.2023 18:26:07.969 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@548a20ad[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 92712] is shutdown: true and terminated: false took: 0.000 seconds.
+25.06.2023 18:26:07.969 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@b092a62[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+25.06.2023 18:26:07.970 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617
+25.06.2023 18:26:07.970 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@2a428d22[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+25.06.2023 18:26:07.972 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120,port=61617,localport=64777]
+25.06.2023 18:26:07.972 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2a428d22[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+25.06.2023 18:26:07.972 [main] DEBUG o.a.a.j.p.PooledConnectionFactory - Stopping the PooledConnectionFactory, number of connections in cache: 0
+25.06.2023 18:26:08.008 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@22edc083[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+25.06.2023 18:26:08.018 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@48f9dae7[Shutting down, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 11] is shutdown: true and terminated: false took: 0.000 seconds.
+25.06.2023 18:26:08.018 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617
+25.06.2023 18:26:08.018 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@2a20949a[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+25.06.2023 18:26:08.019 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120,port=61617,localport=64765]
+25.06.2023 18:26:08.020 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2a20949a[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
