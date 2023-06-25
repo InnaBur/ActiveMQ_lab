@@ -30,10 +30,11 @@ public class Consumer extends ConnectionProcessing {
                 ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();
                 messagesList.add(myMessage);
+                count++;
             } else {
                 break;
             }
-            count++;
+
         }
 
         logger.info("Received {} messages", count);
