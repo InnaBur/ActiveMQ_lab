@@ -1420,3 +1420,178 @@
 25.06.2023 01:52:58.889 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
 25.06.2023 01:52:58.890 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
 25.06.2023 01:52:58.890 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:02:12.534 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:02:12.540 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:02:12.553 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:02:12.554 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:02:12.555 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:02:12.556 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:02:12.562 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:02:12.622 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:02:12.787 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:02:12.796 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:02:12.796 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:02:12.796 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:02:12.796 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:02:12.797 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:02:13.365 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:02:13.366 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:02:13.366 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:02:13.367 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:02:13.369 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:02:13.370 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:02:13.372 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:02:13.373 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:02:13.373 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:02:13.373 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:02:13.374 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:02:13.374 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:03:06.733 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:03:06.738 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:03:06.749 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:03:06.751 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:03:06.752 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:03:06.752 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:03:06.758 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:03:06.806 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:03:06.963 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:03:06.971 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:03:06.971 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:03:06.972 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:03:06.972 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:03:06.972 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:03:07.537 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:03:07.538 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:03:07.539 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:03:07.539 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:03:07.540 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:03:07.541 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:03:07.544 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:03:07.545 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:03:07.546 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:03:07.547 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:03:07.551 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:03:07.553 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:04:48.110 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:04:48.114 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:04:48.120 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:04:48.121 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:04:48.122 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:04:48.122 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:04:48.125 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:04:48.152 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:04:48.248 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:04:48.253 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:04:48.253 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:04:48.253 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:04:48.253 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:04:48.253 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:04:48.382 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:04:48.383 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:04:48.383 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:04:48.383 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:04:48.384 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:04:48.384 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:04:48.386 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:04:48.386 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:04:48.386 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:04:48.386 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:04:48.386 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:04:48.386 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:06:11.602 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:06:11.606 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:06:11.612 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:06:11.613 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:06:11.613 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:06:11.613 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:06:11.617 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:06:11.644 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:06:11.743 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:06:11.749 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:06:11.749 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:06:11.749 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:06:11.749 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:06:11.749 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:06:27.574 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:06:27.580 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:06:27.592 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:06:27.594 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:06:27.595 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:06:27.596 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:06:27.603 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:06:27.647 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:06:27.823 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:06:27.834 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:06:27.834 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:06:27.835 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:06:27.835 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:06:27.835 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:09:54.018 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:09:54.022 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:09:54.029 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:09:54.031 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:09:54.031 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:09:54.031 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:09:54.035 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:09:54.061 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:09:54.154 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:09:54.158 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:09:54.158 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:09:54.158 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:09:54.159 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:09:54.159 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:09:56.583 [main] DEBUG com.thirdTask.App - Start
+25.06.2023 02:09:56.588 [main] DEBUG c.t.FileProcessing - Properties were loaded
+25.06.2023 02:09:56.636 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+25.06.2023 02:09:56.639 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+25.06.2023 02:09:56.646 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+25.06.2023 02:09:56.647 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+25.06.2023 02:09:56.647 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+25.06.2023 02:09:56.648 [main] DEBUG o.h.v.i.x.c.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+25.06.2023 02:09:56.650 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+25.06.2023 02:09:56.689 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Loaded expression factory via original TCCL
+25.06.2023 02:09:56.824 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+25.06.2023 02:09:56.830 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+25.06.2023 02:09:56.830 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+25.06.2023 02:09:56.830 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+25.06.2023 02:09:56.830 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+25.06.2023 02:09:56.830 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+25.06.2023 02:09:56.855 [main] INFO  c.t.FileProcessing - File valid.csv created
+25.06.2023 02:09:56.855 [main] INFO  c.t.FileProcessing - File error.csv created
+25.06.2023 02:09:56.856 [main] DEBUG c.t.FileProcessing - Properties were loaded
+25.06.2023 02:09:57.414 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 02:09:57.705 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 02:09:57.707 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 02:09:57.707 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+25.06.2023 02:09:57.707 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+25.06.2023 02:09:57.803 [main] DEBUG c.thirdTask.Producer - Connection started
+25.06.2023 02:09:57.817 [main] DEBUG c.thirdTask.Producer - Queue was created
+25.06.2023 02:09:57.820 [main] DEBUG c.thirdTask.Producer - Time start 02:09:57.820719800
+25.06.2023 02:09:57.821 [main] DEBUG c.thirdTask.Producer - Time end 02:10:00.820719800 
+25.06.2023 02:09:58.563 [main] INFO  c.thirdTask.Producer - Messages sent
+25.06.2023 02:09:58.563 [main] DEBUG c.thirdTask.Producer - Sent 1000 messages
+25.06.2023 02:09:58.564 [main] INFO  c.thirdTask.Producer - Connection closed
+25.06.2023 02:09:58.611 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 02:09:58.957 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 02:09:58.958 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.17.2}, magic=[A,c,t,i,v,e,M,Q]}
+25.06.2023 02:09:58.959 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+25.06.2023 02:09:58.960 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.WireFormatNegotiator - ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+25.06.2023 02:09:59.115 [ActiveMQ Transport: ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@3660c147[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+25.06.2023 02:10:00.415 [main] INFO  c.thirdTask.Consumer - Received 1000 messages
+25.06.2023 02:10:00.416 [main] DEBUG o.a.a.ActiveMQMessageConsumer - remove: ID:DESKTOP-GT5B82O-61931-1687651797160-1:2:1:1, lastDeliveredSequenceId:2138381
+25.06.2023 02:10:00.486 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@3660c147[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 900] is shutdown: true and terminated: false took: 0.000 seconds.
+25.06.2023 02:10:00.486 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7e1f584d[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+25.06.2023 02:10:00.487 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617
+25.06.2023 02:10:00.487 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@4d6ee47[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+25.06.2023 02:10:00.489 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket SSLSocket[hostname=b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com, port=61617, Session(1687651797552|TLS_AES_256_GCM_SHA384)]
+25.06.2023 02:10:00.489 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@4d6ee47[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+25.06.2023 02:10:00.492 [main] DEBUG o.a.a.j.p.PooledConnectionFactory - Stopping the PooledConnectionFactory, number of connections in cache: 0
+25.06.2023 02:10:00.539 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@47b179d7[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+25.06.2023 02:10:00.539 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@39008c9f[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+25.06.2023 02:10:00.539 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport ssl://b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com/3.78.234.120:61617
+25.06.2023 02:10:00.539 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@162b3d47[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+25.06.2023 02:10:00.540 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket SSLSocket[hostname=b-3f65b423-30df-457d-94a6-8f8ffad7bf4b-1.mq.eu-central-1.amazonaws.com, port=61617, Session(1687651797552|TLS_AES_256_GCM_SHA384)]
+25.06.2023 02:10:00.541 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@162b3d47[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+25.06.2023 02:10:01.349 [main] DEBUG c.t.FileProcessing - Count of valid messages: 22
+25.06.2023 02:10:01.350 [main] DEBUG c.t.FileProcessing - Count of invalid messages: 978
+25.06.2023 02:10:01.350 [main] DEBUG com.thirdTask.App - Finish

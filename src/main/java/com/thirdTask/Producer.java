@@ -14,7 +14,7 @@ public class Producer extends ConnectionProcessing {
 
     protected static void createProducerAndSendMessage(PooledConnectionFactory pooledConnectionFactory,
                                                        MessageGenerator messageGenerator,
-                                                       Properties properties) throws JMSException{
+                                                       Properties properties) throws JMSException {
 
         Connection producerConnection = pooledConnectionFactory.createConnection();
         producerConnection.start();
@@ -29,8 +29,8 @@ public class Producer extends ConnectionProcessing {
 
     }
 
-    private  static void sendMessage(Session producerSession, MessageProducer producer,
-                                     MessageGenerator messageGenerator, Properties properties) throws JMSException {
+    private static void sendMessage(Session producerSession, MessageProducer producer,
+                                    MessageGenerator messageGenerator, Properties properties) throws JMSException {
 
         DataProcessing dataProcessing = new DataProcessing();
         LocalTime start = LocalTime.now();
@@ -41,7 +41,7 @@ public class Producer extends ConnectionProcessing {
         LocalTime endTime = start.plusSeconds(poisonPill);
         int count = 0;
         logger.debug("Time start {}", LocalTime.now());
-        logger.debug("Time end {} ", endTime);
+        logger.debug("Estimated time end {} ", endTime);
 
         for (int i = 0; i < numberOfMessages; i++) {
 
@@ -53,10 +53,10 @@ public class Producer extends ConnectionProcessing {
                 }
             }
             if (!isNotPoisonPill(endTime)) {
+                logger.info("PoisonPill worked");
                 break;
             }
         }
-        logger.info("PoisonPill worked");
         logger.info("Messages sent");
         logger.debug("Sent {} messages", count);
     }
