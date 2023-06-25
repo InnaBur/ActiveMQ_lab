@@ -23,7 +23,7 @@ public class FileProcessing {
     public FileProcessing() throws IOException {
     }
 
-    public void createCSVFiles() {
+    public void createCSVFiles() throws IOException {
         createCSV(FILEPATH_VALID, HEADER_VALID);
         createCSV(FILEPATH_ERROR, HEADER_ERROR);
     }
@@ -38,12 +38,12 @@ public class FileProcessing {
             properties.load(reader);
             logger.debug("Properties were loaded");
         } catch (IOException e) {
-            logger.error("Properties out jar were not loaded ");
+            logger.error("Properties were not loaded ");
         }
         return properties;
     }
 
-    public void createCSV(String filePath, String[] header) {
+    public boolean createCSV(String filePath, String[] header) throws IOException {
         File file = new File(filePath);
         try {
             FileWriter outputFile = new FileWriter(file);
@@ -51,9 +51,10 @@ public class FileProcessing {
             writer.writeNext(header);
             logger.info("File {} created", filePath);
             writer.close();
+            return true;
         } catch (IOException e) {
             logger.error("File was not created!");
-            e.printStackTrace();
+            throw new IOException("File was not created ", e);
         }
     }
 
