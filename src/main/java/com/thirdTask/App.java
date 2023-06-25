@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Properties;
 
 public class App {
-
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) throws IOException, JMSException {
