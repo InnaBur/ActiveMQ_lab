@@ -23,5 +23,4 @@ class FileProcessingTest {
         properties.setProperty(key, "Adjfhkh");
         assertNotNull(fileProcessing.loadProperties());
     }
-
 }
