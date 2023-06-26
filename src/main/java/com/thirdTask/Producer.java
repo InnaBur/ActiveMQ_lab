@@ -12,7 +12,6 @@ public class Producer extends ConnectionProcessing {
     private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 
     protected static void createProducerAndSendMessage(PooledConnectionFactory pooledConnectionFactory,
-
                                                        MessageGenerator messageGenerator,
                                                        Properties properties) throws JMSException {
 
