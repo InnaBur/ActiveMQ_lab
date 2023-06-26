@@ -7,22 +7,19 @@ import org.slf4j.LoggerFactory;
 
 import javax.jms.JMSException;
 import java.io.IOException;
-import java.time.Duration;
-import java.time.LocalTime;
-import java.util.List;
 import java.util.Properties;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
-
-    public static void main(String[] args) throws IOException, JMSException {
+    private static final String FILEPATH_VALID = "valid.csv";
+    private static final String FILEPATH_ERROR = "error.csv";
+    public static void main(String[] args) throws IOException, JMSException, InterruptedException {
         logger.debug("Start");
 
-        MessageGenerator messageGenerator = new MessageGenerator();
-        MyValidator myValidator = new MyValidator();
-        FileProcessing fileProcessing = new FileProcessing();
         Consumer consumer = new Consumer();
-        List<MyMessage> receivedMessages;
+
+        MessageGenerator messageGenerator = new MessageGenerator();
+        FileProcessing fileProcessing = new FileProcessing();
 
         fileProcessing.createCSVFiles();
         Properties properties = fileProcessing.loadProperties();
@@ -31,11 +28,14 @@ public class App {
         ActiveMQConnectionFactory connectionFactory = Producer.createActiveMQConnectionFactory(properties);
         PooledConnectionFactory pooledConnectionFactory = Producer.createPooledConnectionFactory(connectionFactory);
         Producer.createProducerAndSendMessage(pooledConnectionFactory, messageGenerator, properties);
-        receivedMessages = consumer.receiveMessage(connectionFactory, properties);
+        consumer.createConsumerAndReceiveMessages(connectionFactory, properties);
+
         pooledConnectionFactory.stop();
 
-        fileProcessing.writeInFilesAfterValidation(receivedMessages, myValidator);
-
+        fileProcessing.countMessages(FILEPATH_VALID);
+        fileProcessing.countMessages(FILEPATH_ERROR);
         logger.debug("Finish");
     }
+
+
 }

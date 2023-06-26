@@ -8,54 +8,52 @@ import javax.jms.*;
 import java.time.Duration;
 import java.io.IOException;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Properties;
-
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Consumer extends ConnectionProcessing {
     private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
-FileProcessing fileProcessing = new FileProcessing();
+    protected void createConsumerAndReceiveMessages(ActiveMQConnectionFactory connectionFactory, Properties properties) throws JMSException, IOException, InterruptedException {
 
-    public Consumer() throws IOException {
-    }
-
-    protected List<MyMessage> receiveMessage(ActiveMQConnectionFactory connectionFactory, Properties properties) throws JMSException, IOException {
-MyValidator myValidator = new MyValidator();
         Connection consumerConnection = connectionFactory.createConnection();
         consumerConnection.start();
         Session consumerSession = consumerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         Destination consumerDestination = consumerSession.createQueue(properties.getProperty("nameQueue"));
 
         MessageConsumer consumer = consumerSession.createConsumer(consumerDestination);
+        receiveMessages(consumer);
+
+        closeSession(consumer, consumerSession, consumerConnection);
+    }
+
+    private void receiveMessages(MessageConsumer consumer) throws InterruptedException, JMSException, IOException {
+        MyValidator myValidator = new MyValidator();
+        FileProcessing fileProcessing = new FileProcessing();
+        BlockingQueue<MyMessage> blockingQueue = new LinkedBlockingQueue<>();
         int count = 0;
-        List<MyMessage> messagesList = new LinkedList<>();
         LocalTime start = LocalTime.now();
         while (true) {
             Message consumerMessage = consumer.receive(2000);
             if (consumerMessage instanceof ObjectMessage) {
                 ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();
-                messagesList.add(myMessage);
-
+                blockingQueue.put(myMessage);
+                fileProcessing.writeInFilesAfterValidation(blockingQueue.take(), myValidator);
                 count++;
             } else {
                 break;
             }
-
         }
+        double speed = countTime(start, count);
+        logger.info("Speed, messages in millisecond {}", speed);
+    }
+
+    protected double countTime(LocalTime start, int count) {
         LocalTime end = LocalTime.now();
         logger.info("Received {} messages", count);
-        double milisec = Duration.between(start,end).toMillis();
-        double mesInMillisec = count/ milisec;
-//        double sec = duration.toMillis()/messagesList.size() ;
-
-        logger.info("Speed, messages in millisecond {}", mesInMillisec);
-        closeSession(consumer, consumerSession, consumerConnection);
-        return messagesList;
-
-
+        double millis = Duration.between(start, end).toMillis();
+        return count / millis;
     }
 
     private static void closeSession(MessageConsumer consumer, Session consumerSession, Connection consumerConnection) throws JMSException {
@@ -63,6 +61,4 @@ MyValidator myValidator = new MyValidator();
         consumerSession.close();
         consumerConnection.close();
     }
-
-
 }

@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -23,7 +22,7 @@ public class FileProcessing {
     public FileProcessing() throws IOException {
     }
 
-    public void createCSVFiles() throws IOException {
+    public void createCSVFiles() {
         createCSV(FILEPATH_VALID, HEADER_VALID);
         createCSV(FILEPATH_ERROR, HEADER_ERROR);
     }
@@ -43,7 +42,7 @@ public class FileProcessing {
         return properties;
     }
 
-    public boolean createCSV(String filePath, String[] header) throws IOException {
+    public boolean createCSV(String filePath, String[] header) {
         File file = new File(filePath);
         try {
             FileWriter outputFile = new FileWriter(file);
@@ -54,31 +53,39 @@ public class FileProcessing {
             return true;
         } catch (IOException e) {
             logger.error("File was not created!");
-            throw new IOException("File was not created ", e);
+            return false;
         }
     }
 
     public void writeIntoFile(String filePath, String[] data) throws IOException {
-        CSVWriter writer = new CSVWriter(new FileWriter(filePath, true));
-        writer.writeNext(data);
-        writer.close();
+            CSVWriter writer = new CSVWriter(new FileWriter(filePath, true));
+            writer.writeNext(data);
+            writer.close();
     }
 
-    protected void writeInFilesAfterValidation(List<MyMessage> receivedMessages, MyValidator myValidator) throws IOException {
-        int countValid = 0;
-        int countInvalid = 0;
-        for (MyMessage message : receivedMessages) {
-            Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
+    protected void writeInFilesAfterValidation(MyMessage message, MyValidator myValidator) {
+        Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
+        try {
             if (validateMessage.isEmpty()) {
                 writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
-                countValid++;
             } else {
                 writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
-                countInvalid++;
             }
+        } catch (IOException e) {
+            logger.warn("Data in file was not written ", e);
         }
-        logger.debug("Count of valid messages: {}", countValid);
-        logger.debug("Count of invalid messages: {}", countInvalid);
+    }
+
+    protected void countMessages(String filepath) {
+        int count = 0;
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath))) {
+            while (bufferedReader.readLine() != null) {
+                count++;
+            }
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+        logger.debug("messages in {}: {}", filepath, count - 1);
     }
 
 

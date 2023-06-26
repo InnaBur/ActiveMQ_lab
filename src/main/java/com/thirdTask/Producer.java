@@ -11,8 +11,8 @@ import java.util.Properties;
 public class Producer extends ConnectionProcessing {
     private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 
-
     protected static void createProducerAndSendMessage(PooledConnectionFactory pooledConnectionFactory,
+
                                                        MessageGenerator messageGenerator,
                                                        Properties properties) throws JMSException {
 
@@ -22,7 +22,7 @@ public class Producer extends ConnectionProcessing {
         Session producerSession = producerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
         MessageProducer producer = createProducer(properties, producerSession);
-        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+
 
         sendMessage(producerSession, producer, messageGenerator, properties);
         closeSession(producer, producerSession, producerConnection);
@@ -33,11 +33,11 @@ public class Producer extends ConnectionProcessing {
                                     MessageGenerator messageGenerator, Properties properties) throws JMSException {
 
         DataProcessing dataProcessing = new DataProcessing();
-        LocalTime start = LocalTime.now();
-        int numberOfMessages = Integer.parseInt(dataProcessing.readOutputFormat());
 
+        int numberOfMessages = Integer.parseInt(dataProcessing.readOutputFormat());
         long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
 
+        LocalTime start = LocalTime.now();
         LocalTime endTime = start.plusSeconds(poisonPill);
         int count = 0;
         logger.debug("Time start {}", LocalTime.now());
@@ -63,8 +63,8 @@ public class Producer extends ConnectionProcessing {
 
     private static void sendMessageToQueue(Session producerSession, MessageProducer producer, MessageGenerator messageGenerator) throws JMSException {
         ObjectMessage producerMessage;
-        MyMessage messages = messageGenerator.generateMessage();
-        producerMessage = producerSession.createObjectMessage(messages);
+        MyMessage message = messageGenerator.generateMessage();
+        producerMessage = producerSession.createObjectMessage(message);
         producer.send(producerMessage);
     }
 
@@ -75,8 +75,9 @@ public class Producer extends ConnectionProcessing {
     private static MessageProducer createProducer(Properties properties, Session producerSession) throws JMSException {
         Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
         logger.debug("Queue was created");
-
-        return producerSession.createProducer(producerDestination);
+        MessageProducer producer = producerSession.createProducer(producerDestination);
+        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+        return producer;
     }
 
     private static void closeSession(MessageProducer producer, Session producerSession, Connection producerConnection) throws JMSException {

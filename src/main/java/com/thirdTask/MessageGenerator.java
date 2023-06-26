@@ -35,7 +35,7 @@ Properties properties = fileProcessing.loadProperties();
     protected String textGenerator() {
         int nameMaxLength = Integer.parseInt(properties.getProperty("nameMaxLength"));
         int nameMinLength = Integer.parseInt(properties.getProperty("nameMinLength"));
-        String text = "";
+        String text;
         int length = ThreadLocalRandom.current().nextInt(nameMinLength, nameMaxLength);
         text = ThreadLocalRandom.current()
                 .ints(length - 1, A_LETTER, LAST_LETTER)

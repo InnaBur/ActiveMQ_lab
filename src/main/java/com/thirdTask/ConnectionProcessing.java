@@ -21,4 +21,5 @@ public abstract class ConnectionProcessing {
         connectionFactory.setPassword(properties.getProperty("password"));
         return connectionFactory;
     }
+
 }

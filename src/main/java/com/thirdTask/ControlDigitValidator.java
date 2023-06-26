@@ -18,31 +18,29 @@ public class ControlDigitValidator implements ConstraintValidator<ControlDigit, 
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        int controlDigit = 0;
-        if (s != null) {
-            List<Integer> digits = new ArrayList<>();
-            for (int i = 0; i < s.length(); i++) {
-                int digit = Integer.parseInt(String.valueOf(s.charAt(i)));
-                if (digitShouldMultiplyOnSeven(i)) {
-                    digits.add(digit * SEVEN);
-                } else if (digitShouldMultiplyOnThree(i)) {
-                    digits.add(digit * THREE);
-                } else {
-                    digits.add(digit);
-                }
-            }
-            controlDigit = digits.stream().
-                    mapToInt(Integer::intValue).sum() % 10;
-            return Integer.parseInt(String.valueOf(s.charAt(s.length() - 1))) == controlDigit;
-        }
-        else {
+        if (s == null || s.isEmpty()) {
             return false;
         }
+        int controlDigit = 0;
+        List<Integer> digits = new ArrayList<>();
+        for (int i = 0; i < s.length(); i++) {
+            int digit = Character.getNumericValue(s.charAt(i));
+            if (digitShouldMultiplyOnSeven(i)) {
+                digits.add(digit * SEVEN);
+            } else if (digitShouldMultiplyOnThree(i)) {
+                digits.add(digit * THREE);
+            } else {
+                digits.add(digit);
+            }
+        }
+        controlDigit = digits.stream().
+                mapToInt(Integer::intValue).sum() % 10;
+        return Integer.parseInt(String.valueOf(s.charAt(s.length() - 1))) == controlDigit;
 
     }
 
     private boolean digitShouldMultiplyOnThree(int i) {
-        return i == 1 || i == 4 || i == 7 || i == 10 || i == 13;
+        return i % THREE == 1;
     }
 
     private boolean digitShouldMultiplyOnSeven(int i) {
