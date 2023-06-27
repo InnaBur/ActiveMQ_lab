@@ -26,9 +26,9 @@ Properties properties = fileProcessing.loadProperties();
     protected MyMessage generateMessage() {
         MyMessage message = new MyMessage();
         message.setName(textGenerator());
-        message.setCreated_at(generateDataTime());
         message.setEddr(eddrGenerator());
         message.setCount(generateNumber());
+        message.setCreated_at(generateDataTime());
         return message;
     }
 

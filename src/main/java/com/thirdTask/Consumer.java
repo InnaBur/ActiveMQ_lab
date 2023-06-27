@@ -27,20 +27,15 @@ public class Consumer extends ConnectionProcessing {
         closeSession(consumer, consumerSession, consumerConnection);
     }
 
-    private void receiveMessages(MessageConsumer consumer) throws InterruptedException, JMSException, IOException {
-        MyValidator myValidator = new MyValidator();
-        FileProcessing fileProcessing = new FileProcessing();
-        BlockingQueue<MyMessage> blockingQueue = new LinkedBlockingQueue<>();
+    protected void receiveMessages(MessageConsumer consumer) throws InterruptedException, JMSException, IOException {
+
         int count = 0;
         LocalTime start = LocalTime.now();
         while (true) {
+
             Message consumerMessage = consumer.receive(2000);
             if (consumerMessage instanceof ObjectMessage) {
-                ObjectMessage consumerTextMessage = (ObjectMessage) consumerMessage;
-                MyMessage myMessage = (MyMessage) consumerTextMessage.getObject();
-                blockingQueue.put(myMessage);
-                fileProcessing.writeInFilesAfterValidation(blockingQueue.take(), myValidator);
-                count++;
+                count = receiveOneMessage(consumerMessage, count);
             } else {
                 break;
             }
@@ -49,11 +44,24 @@ public class Consumer extends ConnectionProcessing {
         logger.info("Speed, messages in millisecond {}", speed);
     }
 
+    protected int receiveOneMessage(Message consumerMessage, int count ) throws IOException, JMSException, InterruptedException {
+        MyValidator myValidator = new MyValidator();
+        FileProcessing fileProcessing = new FileProcessing();
+        BlockingQueue<MyMessage> blockingQueue = new LinkedBlockingQueue<>();
+
+        ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;
+        MyMessage myMessage = (MyMessage) consumerObjectMessage.getObject();
+        blockingQueue.put(myMessage);
+        fileProcessing.writeInFilesAfterValidation(blockingQueue.take(), myValidator);
+        count++;
+        return count;
+    }
+
     protected double countTime(LocalTime start, int count) {
         LocalTime end = LocalTime.now();
         logger.info("Received {} messages", count);
-        double millis = Duration.between(start, end).toMillis();
-        return count / millis;
+        double seconds = Duration.between(start, end).toSeconds();
+        return count / seconds;
     }
 
     private static void closeSession(MessageConsumer consumer, Session consumerSession, Connection consumerConnection) throws JMSException {

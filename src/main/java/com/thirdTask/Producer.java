@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.Properties;
 
@@ -37,21 +38,20 @@ public class Producer extends ConnectionProcessing {
         long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
 
         LocalTime start = LocalTime.now();
-        LocalTime endTime = start.plusSeconds(poisonPill);
+        LocalTime estimatedEndTime = start.plusSeconds(poisonPill);
         int count = 0;
         logger.debug("Time start {}", LocalTime.now());
-        logger.debug("Estimated time end {} ", endTime);
-
+        logger.debug("Estimated time end {} ", estimatedEndTime);
         for (int i = 0; i < numberOfMessages; i++) {
 
-            while (isNotPoisonPill(endTime)) {
+            while (isNotPoisonPill(estimatedEndTime)) {
                 sendMessageToQueue(producerSession, producer, messageGenerator);
                 count++;
                 if (numberOfMessages >= count) {
                     break;
                 }
             }
-            if (!isNotPoisonPill(endTime)) {
+            if (!isNotPoisonPill(estimatedEndTime)) {
                 logger.info("PoisonPill worked");
                 break;
             }

@@ -1,6 +1,10 @@
 package com.thirdTask;
 
+import jakarta.validation.ConstraintViolation;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +34,7 @@ class DataProcessingTest {
 //
 //        MyMessage message = new MyMessage("Wljywc", "1234567890122", 940, "data");
 //        Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
-//        String[] expected = {"Wljywc", "940", "{\"errors\":[\"Must be at least one letter 'а'\",\"Checksum is wrong\",\"Name length must be longer then 6 symbols\"]}"};
+//        String[] expected = {"Wljywc", "940", "{\"errors\":[\"Name length must be longer then 6 symbols\",\"Checksum is wrong\",\"Must be at least one letter 'а'\"]}"};
 //
 //        assertArrayEquals(expected, dataProcessing.dataInvalid(message, validateMessage));
 //    }
