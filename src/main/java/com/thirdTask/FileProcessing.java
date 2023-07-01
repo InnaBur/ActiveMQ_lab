@@ -101,16 +101,18 @@ public class FileProcessing implements Runnable {
         }
     }
 
-    protected void countMessages(String filepath) {
+    protected int countMessages(String filepath) {
         int count = 0;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath))) {
             while (bufferedReader.readLine() != null) {
                 count++;
             }
+
         } catch (IOException e) {
             logger.debug("File was not read", e);
         }
         logger.debug("messages in {}: {}", filepath, count - UNCOUNTED_FIELD);
+        return count;
     }
 
 }

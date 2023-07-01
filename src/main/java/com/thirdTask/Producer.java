@@ -50,7 +50,7 @@ public class Producer extends ConnectionProcessing implements Runnable {
 
     }
 
-    protected static void sendMessage(Session producerSession, MessageProducer producer,
+    protected void sendMessage(Session producerSession, MessageProducer producer,
                                       MessageGenerator messageGenerator, Properties properties) throws JMSException, InterruptedException {
         BlockingQueue<MyMessage> blockingQueueProducer = messageGenerator.generateMessage();
 
@@ -81,7 +81,7 @@ public class Producer extends ConnectionProcessing implements Runnable {
         logger.debug("Sent {} messages", count);
     }
 
-    private static int sendPoisonPill(int count, Session producerSession, MessageProducer producer) throws JMSException {
+    protected int sendPoisonPill(int count, Session producerSession, MessageProducer producer) throws JMSException {
         MyMessage poison = new MyMessage();
         poison.setName("PoisonPill");
         ObjectMessage poisonPillMessage = producerSession.createObjectMessage(poison);
@@ -90,7 +90,7 @@ public class Producer extends ConnectionProcessing implements Runnable {
         return count;
     }
 
-    private static int sendMessageToQueue(int count, BlockingQueue<MyMessage> blockingQueueProduser, Session producerSession, MessageProducer producer) throws InterruptedException, JMSException {
+    protected int sendMessageToQueue(int count, BlockingQueue<MyMessage> blockingQueueProduser, Session producerSession, MessageProducer producer) throws InterruptedException, JMSException {
         ObjectMessage producerMessage;
         MyMessage message = blockingQueueProduser.take();
         producerMessage = producerSession.createObjectMessage(message);
@@ -99,11 +99,11 @@ public class Producer extends ConnectionProcessing implements Runnable {
         return count;
     }
 
-    private static boolean isNotTimePoisonPill(LocalTime endTime) {
+    protected boolean isNotTimePoisonPill(LocalTime endTime) {
         return LocalTime.now().isBefore(endTime);
     }
 
-    private static MessageProducer createProducer(Properties properties, Session producerSession) throws JMSException {
+    protected static MessageProducer createProducer(Properties properties, Session producerSession) throws JMSException {
         Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
         logger.debug("Queue was created");
         MessageProducer producer = producerSession.createProducer(producerDestination);

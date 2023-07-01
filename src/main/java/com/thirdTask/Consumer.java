@@ -64,7 +64,7 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         }
     }
 
-    private int countMessages(MessageConsumer consumer) throws JMSException, InterruptedException {
+    protected int countMessages(MessageConsumer consumer) throws JMSException, InterruptedException {
         int count = 0;
         boolean receiveMessages = true;
         while (receiveMessages) {
@@ -78,7 +78,6 @@ public class Consumer extends ConnectionProcessing implements Runnable {
                 if (isPoisonPill(myMessage)) {
                     logger.info("PoisonPill received");
                     blockingQueue.put(myMessage);
-                    //count++;
                     receiveMessages = false;
                 }
                 blockingQueue.put(myMessage);
@@ -101,7 +100,7 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         consumerConnection.close();
     }
 
-    private static boolean isPoisonPill(MyMessage message) {
+    protected boolean isPoisonPill(MyMessage message) {
         return message.getName().equals("PoisonPill");
     }
 
