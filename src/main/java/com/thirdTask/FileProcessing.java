@@ -17,13 +17,14 @@ public class FileProcessing implements Runnable {
     private static final String[] HEADER_ERROR = {"Name", "Count", "Error"};
     private static final String FILEPATH_VALID = "valid.csv";
     private static final String FILEPATH_ERROR = "error.csv";
+    private static final int UNCOUNTED_FIELD = 1;
     DataProcessing dataProcessing = new DataProcessing();
     BlockingQueue<MyMessage> blockingQueue;
 
     public FileProcessing() throws IOException {
     }
 
-    public FileProcessing(BlockingQueue<MyMessage> blockingQueue) throws IOException {
+    public FileProcessing(BlockingQueue<MyMessage> blockingQueue) {
         this.blockingQueue = blockingQueue;
     }
 
@@ -37,26 +38,9 @@ public class FileProcessing implements Runnable {
                 writeInFilesAfterValidation(list);
             }
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            logger.error("InterruptedException occurred in {}", this.getClass(), e);
+            Thread.currentThread().interrupt();
         }
-//        try {
-//            List<MyMessage> batch = new ArrayList<>();
-//            int batchSize = 500;
-//            Thread.sleep(100);
-//            while (!blockingQueue.isEmpty()) {
-//                blockingQueue.take();
-//
-//                for (MyMessage element : batch) {
-//                    writeInFilesAfterValidation(element);
-//                }
-//
-//                batch.clear();
-//            }
-//            Thread.sleep(100);
-////            writeInFilesAfterValidation(blockingQueue);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
     public void createCSVFiles() {
@@ -100,24 +84,7 @@ public class FileProcessing implements Runnable {
         writer.close();
     }
 
-    protected void writeInFilesAfterValidation(MyMessage message) throws InterruptedException {
-        MyValidator myValidator = new MyValidator();
-//        while (!list.isEmpty()) {
-//            MyMessage message = list.poll();
-            Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
-            try {
-                if (validateMessage.isEmpty()) {
-                    writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
-                } else {
-                    writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
-                }
-            } catch (IOException e) {
-                logger.warn("Data in file was not written ", e);
-            }
-//        }
-    }
-
-    protected void writeInFilesAfterValidation(Queue<MyMessage> list) throws InterruptedException {
+    protected void writeInFilesAfterValidation(Queue<MyMessage> list) {
         MyValidator myValidator = new MyValidator();
         while (!list.isEmpty()) {
             MyMessage message = list.poll();
@@ -133,6 +100,7 @@ public class FileProcessing implements Runnable {
             }
         }
     }
+
     protected void countMessages(String filepath) {
         int count = 0;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath))) {
@@ -140,10 +108,9 @@ public class FileProcessing implements Runnable {
                 count++;
             }
         } catch (IOException e) {
-            e.getStackTrace();
+            logger.debug("File was not read", e);
         }
-        logger.debug("messages in {}: {}", filepath, count - 1);
+        logger.debug("messages in {}: {}", filepath, count - UNCOUNTED_FIELD);
     }
-
 
 }

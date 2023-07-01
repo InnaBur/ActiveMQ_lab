@@ -10,12 +10,10 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 public class Consumer extends ConnectionProcessing implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
     BlockingQueue<MyMessage> blockingQueue;
-    private int count = 0;
 
     public Consumer(BlockingQueue<MyMessage> blockingQueue) {
         this.blockingQueue = blockingQueue;
@@ -28,13 +26,13 @@ public class Consumer extends ConnectionProcessing implements Runnable {
     public void run() {
         try {
             createConsumerAndReceiveMessages();
-
         } catch (JMSException e) {
-            throw new RuntimeException(e);
+            logger.error("JMSException occurred in {}", this.getClass(), e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            logger.error("IOException occurred in {}", this.getClass(), e);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            logger.error("InterruptedException occurred in {}", this.getClass(), e);
+            Thread.currentThread().interrupt();
         }
     }
 
@@ -52,46 +50,48 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         closeSession(consumer, consumerSession, consumerConnection);
     }
 
-    protected void receiveMessages(MessageConsumer consumer) throws InterruptedException, JMSException, IOException {
-
-//        Thread consum = new Thread();
-//        consum.start();
-//        consum.join();
-        LocalTime start = LocalTime.now();
-        while (true) {
-
-            Message consumerMessage = consumer.receive(1000);
-
-            if (consumerMessage != null) {
-//                if (((MyMessage) consumerMessage).getName().equals("PoisonPill")) {
-//                    break;
-//                }
-                count = receiveOneMessage(consumerMessage, count);
-            } else {
-                break;
-            }
+    protected void receiveMessages(MessageConsumer consumer) {
+        try {
+            LocalTime start = LocalTime.now();
+            int count = countMessages(consumer);
+            double speed = countTime(start, count);
+            logger.info("Speed, messages in second {}", speed);
+        } catch (InterruptedException e) {
+            logger.error("InterruptedException occurred in {}", this.getClass(), e);
+            Thread.currentThread().interrupt();
+        } catch (JMSException e) {
+            logger.error("JMSException occurred in {}", this.getClass(), e);
         }
-        double speed = countTime(start, count);
-        logger.info("Speed, messages in second {}", speed);
     }
 
-    protected int receiveOneMessage(Message consumerMessage, int count) throws IOException, JMSException, InterruptedException {
-        MyValidator myValidator = new MyValidator();
-        FileProcessing fileProcessing = new FileProcessing();
-//        BlockingQueue<MyMessage> blockingQueue = new LinkedBlockingQueue<>();
+    private int countMessages(MessageConsumer consumer) throws JMSException, InterruptedException {
+        int count = 0;
+        boolean receiveMessages = true;
+        while (receiveMessages) {
 
-        ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;
-        MyMessage myMessage = (MyMessage) consumerObjectMessage.getObject();
-        blockingQueue.put(myMessage);
-//        fileProcessing.writeInFilesAfterValidation(blockingQueue.take(), myValidator);
-        count++;
+            Message consumerMessage = consumer.receive(1000);
+            if (consumerMessage == null) {
+                receiveMessages = false;
+            } else {
+                ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;
+                MyMessage myMessage = (MyMessage) consumerObjectMessage.getObject();
+                if (isPoisonPill(myMessage)) {
+                    logger.info("PoisonPill received");
+                    blockingQueue.put(myMessage);
+                    //count++;
+                    receiveMessages = false;
+                }
+                blockingQueue.put(myMessage);
+                count++;
+            }
+        }
         return count;
     }
 
     protected double countTime(LocalTime start, int count) {
         LocalTime end = LocalTime.now();
         logger.info("Received {} messages", count);
-        double seconds = Duration.between(start, end).toSeconds();
+        double seconds = Duration.between(start, end).toMillis() / 1000.0;
         return count / seconds;
     }
 
@@ -101,5 +101,8 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         consumerConnection.close();
     }
 
+    private static boolean isPoisonPill(MyMessage message) {
+        return message.getName().equals("PoisonPill");
+    }
 
 }

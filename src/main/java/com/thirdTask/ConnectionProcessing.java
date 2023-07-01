@@ -1,17 +1,10 @@
 package com.thirdTask;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.jms.pool.PooledConnectionFactory;
 
 import java.util.Properties;
 
-public abstract class ConnectionProcessing {
-    protected static PooledConnectionFactory createPooledConnectionFactory(ActiveMQConnectionFactory connectionFactory) {
-
-        PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory();
-        pooledConnectionFactory.setConnectionFactory(connectionFactory);
-        return pooledConnectionFactory;
-    }
+public class ConnectionProcessing {
 
     protected static ActiveMQConnectionFactory createActiveMQConnectionFactory(Properties properties) {
         String brokerAddress = properties.getProperty("brokerAddress");

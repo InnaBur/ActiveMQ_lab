@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
@@ -68,6 +67,7 @@ public class MessageGenerator {
         int eddrLength = Integer.parseInt(properties.getProperty("eddrLength"));
         int lengthOfRandomDigits = 5;
         int monthBirth = Integer.parseInt(generateBirthData(MAX_MONTH + 1));
+
         return IntStream.range(0, eddrLength - lengthOfRandomDigits)
                 .mapToObj(i -> {
                     if (i == 0) {
