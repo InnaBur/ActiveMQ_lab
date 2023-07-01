@@ -1,22 +1,49 @@
 package com.thirdTask;
 
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.jms.pool.PooledConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
-import java.time.Duration;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Properties;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
-public class Producer extends ConnectionProcessing {
+public class Producer extends ConnectionProcessing implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 
-    protected static void createProducerAndSendMessage(PooledConnectionFactory pooledConnectionFactory,
-                                                       MessageGenerator messageGenerator,
-                                                       Properties properties) throws JMSException {
 
-        Connection producerConnection = pooledConnectionFactory.createConnection();
+    public Producer() throws IOException {
+    }
+
+
+//    public Producer(BlockingQueue<MyMessage> blockingQueue) {
+//        this.blockingQueue = blockingQueue;
+//    }
+
+    @Override
+    public void run() {
+        try {
+            createProducerAndSendMessage();
+        } catch (JMSException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected void createProducerAndSendMessage() throws JMSException, IOException, InterruptedException {
+        MessageGenerator messageGenerator = new MessageGenerator();
+        FileProcessing fileProcessing = new FileProcessing();
+        Properties properties = fileProcessing.loadProperties();
+        ActiveMQConnectionFactory activeMQConnectionFactory = createActiveMQConnectionFactory(properties);
+//        PooledConnectionFactory pooledConnectionFactory = createPooledConnectionFactory()
+        Connection producerConnection = activeMQConnectionFactory.createConnection();
         producerConnection.start();
         logger.debug("Connection started");
         Session producerSession = producerConnection.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -29,9 +56,9 @@ public class Producer extends ConnectionProcessing {
 
     }
 
-    private static void sendMessage(Session producerSession, MessageProducer producer,
-                                    MessageGenerator messageGenerator, Properties properties) throws JMSException {
-
+    protected static void sendMessage(Session producerSession, MessageProducer producer,
+                                      MessageGenerator messageGenerator, Properties properties) throws JMSException, InterruptedException {
+        BlockingQueue<MyMessage> blockingQueueProduser = messageGenerator.generateMessage();
         DataProcessing dataProcessing = new DataProcessing();
 
         int numberOfMessages = Integer.parseInt(dataProcessing.readOutputFormat());
@@ -42,30 +69,46 @@ public class Producer extends ConnectionProcessing {
         int count = 0;
         logger.debug("Time start {}", LocalTime.now());
         logger.debug("Estimated time end {} ", estimatedEndTime);
-        for (int i = 0; i < numberOfMessages; i++) {
 
-            while (isNotPoisonPill(estimatedEndTime)) {
-                sendMessageToQueue(producerSession, producer, messageGenerator);
-                count++;
-                if (numberOfMessages >= count) {
-                    break;
-                }
-            }
-            if (!isNotPoisonPill(estimatedEndTime)) {
-                logger.info("PoisonPill worked");
+
+//        for (int i = 0; i < numberOfMessages; i++) {
+        ObjectMessage producerMessage;
+        while (isNotPoisonPill(estimatedEndTime) && !blockingQueueProduser.isEmpty()) {
+            //sendMessageToQueue(producerSession, producer, messageGenerator);
+            if (!isNotPoisonPill(estimatedEndTime) || blockingQueueProduser.isEmpty()) {
                 break;
             }
+            MyMessage message = blockingQueueProduser.take();
+            producerMessage = producerSession.createObjectMessage(message);
+            producer.send(producerMessage);
+            count++;
+//                if (numberOfMessages >= count) {
+//                    break;
+//                }
         }
+
+//        if (!isNotPoisonPill(estimatedEndTime)) {
+            logger.info("PoisonPill worked");
+            MyMessage poison = new MyMessage();
+            poison.setName("PoisonPill");
+            ObjectMessage poisonPillMessage = producerSession.createObjectMessage(poison);
+            producer.send(poisonPillMessage);
+//        }
+//        }
         logger.info("Messages sent");
+        logger.info("Messages sent for {} sec", LocalTime.now());
         logger.debug("Sent {} messages", count);
+
     }
 
-    private static void sendMessageToQueue(Session producerSession, MessageProducer producer, MessageGenerator messageGenerator) throws JMSException {
-        ObjectMessage producerMessage;
-        MyMessage message = messageGenerator.generateMessage();
-        producerMessage = producerSession.createObjectMessage(message);
-        producer.send(producerMessage);
-    }
+//    private static void sendMessageToQueue(Session producerSession, MessageProducer producer, MessageGenerator messageGenerator) throws JMSException, InterruptedException {
+//        ObjectMessage producerMessage;
+//
+//        MyMessage message = blockingQueueProduser.take();
+//        producerMessage = producerSession.createObjectMessage(message);
+//        producer.send(producerMessage);
+//    }
+
 
     private static boolean isNotPoisonPill(LocalTime endTime) {
         return LocalTime.now().isBefore(endTime);
@@ -85,4 +128,6 @@ public class Producer extends ConnectionProcessing {
         producerConnection.close();
         logger.info("Connection closed");
     }
+
+
 }

@@ -23,6 +23,10 @@ public class MyMessage implements Serializable {
     public MyMessage() {
     }
 
+    public MyMessage(String name) {
+        this.name = name;
+    }
+
     public MyMessage(String name, String eddr, int count, String created_at) {
         this.name = name;
         this.eddr = eddr;

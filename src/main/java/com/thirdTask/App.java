@@ -8,29 +8,39 @@ import org.slf4j.LoggerFactory;
 import javax.jms.JMSException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
     private static final String FILEPATH_VALID = "valid.csv";
+
     private static final String FILEPATH_ERROR = "error.csv";
+    private static final BlockingQueue<MyMessage> blockingQueue = new LinkedBlockingQueue<>();
+
+
     public static void main(String[] args) throws IOException, JMSException, InterruptedException {
         logger.debug("Start");
-
-        Consumer consumer = new Consumer();
+        Consumer consumer = new Consumer(blockingQueue);
+        Producer producer = new Producer();
 
         MessageGenerator messageGenerator = new MessageGenerator();
-        FileProcessing fileProcessing = new FileProcessing();
+        FileProcessing fileProcessing = new FileProcessing(blockingQueue);
 
         fileProcessing.createCSVFiles();
-        Properties properties = fileProcessing.loadProperties();
+
+        producer.run();
+
+        Thread consum = new Thread(consumer);
+        consum.setPriority(Thread.MAX_PRIORITY);
+        Thread writerThread = new Thread(fileProcessing);
 
 
-        ActiveMQConnectionFactory connectionFactory = Producer.createActiveMQConnectionFactory(properties);
-        PooledConnectionFactory pooledConnectionFactory = Producer.createPooledConnectionFactory(connectionFactory);
-        Producer.createProducerAndSendMessage(pooledConnectionFactory, messageGenerator, properties);
-        consumer.createConsumerAndReceiveMessages(connectionFactory, properties);
+        consum.start();
+        writerThread.start();
 
-        pooledConnectionFactory.stop();
+        consum.join();
+        writerThread.join();
 
         fileProcessing.countMessages(FILEPATH_VALID);
         fileProcessing.countMessages(FILEPATH_ERROR);

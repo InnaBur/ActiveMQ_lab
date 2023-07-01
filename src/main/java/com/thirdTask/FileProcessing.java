@@ -7,10 +7,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.BlockingQueue;
 
-public class FileProcessing {
+public class FileProcessing implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(FileProcessing.class);
     private static final String FILE_NAME = "config.properties";
     private static final String[] HEADER_VALID = {"Name", "Count"};
@@ -18,8 +18,45 @@ public class FileProcessing {
     private static final String FILEPATH_VALID = "valid.csv";
     private static final String FILEPATH_ERROR = "error.csv";
     DataProcessing dataProcessing = new DataProcessing();
+    BlockingQueue<MyMessage> blockingQueue;
 
     public FileProcessing() throws IOException {
+    }
+
+    public FileProcessing(BlockingQueue<MyMessage> blockingQueue) throws IOException {
+        this.blockingQueue = blockingQueue;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(1000);
+            while (!blockingQueue.isEmpty()) {
+                Queue<MyMessage> list = new LinkedList<>();
+                blockingQueue.drainTo(list);
+                writeInFilesAfterValidation(list);
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+//        try {
+//            List<MyMessage> batch = new ArrayList<>();
+//            int batchSize = 500;
+//            Thread.sleep(100);
+//            while (!blockingQueue.isEmpty()) {
+//                blockingQueue.take();
+//
+//                for (MyMessage element : batch) {
+//                    writeInFilesAfterValidation(element);
+//                }
+//
+//                batch.clear();
+//            }
+//            Thread.sleep(100);
+////            writeInFilesAfterValidation(blockingQueue);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void createCSVFiles() {
@@ -58,24 +95,44 @@ public class FileProcessing {
     }
 
     public void writeIntoFile(String filePath, String[] data) throws IOException {
-            CSVWriter writer = new CSVWriter(new FileWriter(filePath, true));
-            writer.writeNext(data);
-            writer.close();
+        CSVWriter writer = new CSVWriter(new FileWriter(filePath, true));
+        writer.writeNext(data);
+        writer.close();
     }
 
-    protected void writeInFilesAfterValidation(MyMessage message, MyValidator myValidator) {
-        Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
-        try {
-            if (validateMessage.isEmpty()) {
-                writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
-            } else {
-                writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
+    protected void writeInFilesAfterValidation(MyMessage message) throws InterruptedException {
+        MyValidator myValidator = new MyValidator();
+//        while (!list.isEmpty()) {
+//            MyMessage message = list.poll();
+            Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
+            try {
+                if (validateMessage.isEmpty()) {
+                    writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
+                } else {
+                    writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
+                }
+            } catch (IOException e) {
+                logger.warn("Data in file was not written ", e);
             }
-        } catch (IOException e) {
-            logger.warn("Data in file was not written ", e);
+//        }
+    }
+
+    protected void writeInFilesAfterValidation(Queue<MyMessage> list) throws InterruptedException {
+        MyValidator myValidator = new MyValidator();
+        while (!list.isEmpty()) {
+            MyMessage message = list.poll();
+            Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
+            try {
+                if (validateMessage.isEmpty()) {
+                    writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
+                } else {
+                    writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
+                }
+            } catch (IOException e) {
+                logger.warn("Data in file was not written ", e);
+            }
         }
     }
-
     protected void countMessages(String filepath) {
         int count = 0;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath))) {

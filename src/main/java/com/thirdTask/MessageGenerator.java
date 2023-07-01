@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class MessageGenerator {
     FileProcessing fileProcessing = new FileProcessing();
@@ -19,11 +24,21 @@ public class MessageGenerator {
     private final int MAX_MONTH = 12;
     private final int HOURS = 24;
     private final int MIN_SEC = 60;
-Properties properties = fileProcessing.loadProperties();
+    Properties properties = fileProcessing.loadProperties();
+
     public MessageGenerator() throws IOException {
     }
 
-    protected MyMessage generateMessage() {
+    protected BlockingQueue<MyMessage> generateMessage() {
+        int N = Integer.parseInt(dataProcessing.readOutputFormat());
+        List<MyMessage> myMessages = Stream.generate(this::generateOneMessage)
+                .limit(N)
+                .collect(Collectors.toList());
+        return new LinkedBlockingQueue<>(myMessages);
+    }
+
+    protected MyMessage generateOneMessage() {
+
         MyMessage message = new MyMessage();
         message.setName(textGenerator());
         message.setEddr(eddrGenerator());
@@ -58,7 +73,7 @@ Properties properties = fileProcessing.loadProperties();
                     if (i == 0) {
                         return generateYear(maxYear, minYear);
                     } else if (i == 1) {
-                        return String.format("%02d",monthBirth);
+                        return String.format("%02d", monthBirth);
                     } else if (i == 2) {
                         YearMonth yearMonth = YearMonth.of(maxYear, monthBirth);
                         int maxDayOfMonth = yearMonth.lengthOfMonth();
