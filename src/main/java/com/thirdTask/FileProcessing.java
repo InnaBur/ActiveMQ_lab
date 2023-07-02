@@ -92,6 +92,8 @@ public class FileProcessing implements Runnable {
             try {
                 if (validateMessage.isEmpty()) {
                     writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
+                } else if (new Consumer().isPoisonPill(message)) {
+                    break;
                 } else {
                     writeIntoFile(FILEPATH_ERROR, dataProcessing.dataInvalid(message, validateMessage));
                 }
