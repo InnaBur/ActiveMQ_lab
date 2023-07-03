@@ -63,7 +63,6 @@ public class Consumer extends ConnectionProcessing implements Runnable {
             logger.error("JMSException occurred in {}", this.getClass(), e);
         }
     }
-
     protected int countMessages(MessageConsumer consumer) throws JMSException, InterruptedException {
         int count = 0;
         boolean receiveMessages = true;
