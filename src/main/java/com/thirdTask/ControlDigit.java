@@ -15,9 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface ControlDigit {
 
         String message() default "Checksum is wrong";
-
         Class<?>[] groups() default { };
-
         Class<? extends Payload>[] payload() default { };
 
     }
