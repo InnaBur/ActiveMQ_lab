@@ -14,7 +14,6 @@ public class App {
     private static final String FILEPATH_ERROR = "error.csv";
     private static final BlockingQueue<MyMessage> blockingQueue = new LinkedBlockingQueue<>();
 
-
     public static void main(String[] args) throws IOException, InterruptedException {
         logger.debug("Start");
         Consumer consumer = new Consumer(blockingQueue);
