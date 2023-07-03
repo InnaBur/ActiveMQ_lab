@@ -14,6 +14,7 @@ import static org.mockito.Mockito.*;
 
 class FileProcessingTest {
     private final String filepath = "test.txt";
+
     @Test
     void isExceptionIfWrongPathWhenCreateCSV() throws IOException {
         FileProcessing fileProcessing = new FileProcessing();
@@ -44,7 +45,7 @@ class FileProcessingTest {
     void ifDataIsWroteIntoFile() throws IOException {
         FileProcessing fileProcessing = Mockito.mock(FileProcessing.class);
 
-        String [] data = {"smth data"};
+        String[] data = {"smth data"};
 
         fileProcessing.writeIntoFile(filepath, data);
 
@@ -53,14 +54,14 @@ class FileProcessingTest {
 
     @Test
     void ifDataIsWroteIntoFileAfterValidation() throws IOException {
-MyMessage message = new MyMessage("aaaaaaa", "1987040122223", 12, "1972-01-28T07:15:58");
-FileProcessing fileProcessing = Mockito.mock(FileProcessing.class);
-DataProcessing dataProcessing = Mockito.mock(DataProcessing.class);
-        Queue <MyMessage> list = new LinkedList<>();
+        MyMessage message = new MyMessage("aaaaaaa", "1987040122223", 12, "1972-01-28T07:15:58");
+        FileProcessing fileProcessing = Mockito.mock(FileProcessing.class);
+        DataProcessing dataProcessing = Mockito.mock(DataProcessing.class);
+        Queue<MyMessage> list = new LinkedList<>();
         list.add(message);
         MyValidator myValidator = Mockito.mock(MyValidator.class);
-        String [] validData = {"name", "count"};
-        String [] invalidData = {"not", "valid"};
+        String[] validData = {"name", "count"};
+        String[] invalidData = {"not", "valid"};
 
         when(myValidator.validateMessage(message)).thenReturn(null);
         when(dataProcessing.dataValid(message)).thenReturn(validData);

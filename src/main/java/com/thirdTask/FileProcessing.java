@@ -89,6 +89,7 @@ public class FileProcessing implements Runnable {
         while (!list.isEmpty()) {
             MyMessage message = list.poll();
             Set<ConstraintViolation<MyMessage>> validateMessage = myValidator.validateMessage(message);
+
             try {
                 if (validateMessage.isEmpty()) {
                     writeIntoFile(FILEPATH_VALID, dataProcessing.dataValid(message));
