@@ -37,7 +37,7 @@ public class Producer extends ConnectionProcessing implements Runnable {
         FileProcessing fileProcessing = new FileProcessing();
         Properties properties = fileProcessing.loadProperties();
         ActiveMQConnectionFactory activeMQConnectionFactory = createActiveMQConnectionFactory(properties);
-        PooledConnectionFactory pooledConnectionFactory = Producer.createPooledConnectionFactory(activeMQConnectionFactory);
+        PooledConnectionFactory pooledConnectionFactory = createPooledConnectionFactory(activeMQConnectionFactory);
         Connection producerConnection = pooledConnectionFactory.createConnection();
         producerConnection.start();
         logger.debug("Connection started");
@@ -48,6 +48,7 @@ public class Producer extends ConnectionProcessing implements Runnable {
 
 
         sendMessage(producerSession, producer, messageGenerator, properties);
+        pooledConnectionFactory.clear();
         closeSession(producer, producerSession, producerConnection);
 
     }
