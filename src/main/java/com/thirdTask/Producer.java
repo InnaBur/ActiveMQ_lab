@@ -1,6 +1,7 @@
 package com.thirdTask;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.jms.pool.PooledConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +37,8 @@ public class Producer extends ConnectionProcessing implements Runnable {
         FileProcessing fileProcessing = new FileProcessing();
         Properties properties = fileProcessing.loadProperties();
         ActiveMQConnectionFactory activeMQConnectionFactory = createActiveMQConnectionFactory(properties);
-        Connection producerConnection = activeMQConnectionFactory.createConnection();
+        PooledConnectionFactory pooledConnectionFactory = Producer.createPooledConnectionFactory(activeMQConnectionFactory);
+        Connection producerConnection = pooledConnectionFactory.createConnection();
         producerConnection.start();
         logger.debug("Connection started");
 
