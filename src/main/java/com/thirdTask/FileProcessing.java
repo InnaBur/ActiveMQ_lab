@@ -20,7 +20,7 @@ public class FileProcessing implements Runnable {
     private static final int UNCOUNTED_FIELD = 1;
     DataProcessing dataProcessing = new DataProcessing();
     BlockingQueue<MyMessage> blockingQueue;
-
+    Queue<MyMessage> list = new LinkedList<>();
     public FileProcessing() throws IOException {
     }
 
@@ -33,7 +33,6 @@ public class FileProcessing implements Runnable {
         try {
             Thread.sleep(1000);
             while (!blockingQueue.isEmpty()) {
-                Queue<MyMessage> list = new LinkedList<>();
                 blockingQueue.drainTo(list);
                 logger.debug("Messages drained to list");
                 logger.debug("Writer List size is {}", list.size());

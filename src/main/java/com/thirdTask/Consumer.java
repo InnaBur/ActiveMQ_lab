@@ -75,14 +75,14 @@ public class Consumer extends ConnectionProcessing implements Runnable {
             } else {
                 ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerObjectMessage.getObject();
-//                if (isPoisonPill(myMessage)) {
-//                    logger.info("PoisonPill received");
-//                    blockingQueue.put(myMessage);
-//                    receiveMessages = false;
-//                }
+                if (isPoisonPill(myMessage)) {
+                    logger.info("PoisonPill received");
+                    blockingQueue.put(myMessage);
+                    return count;
+                }
                 blockingQueue.put(myMessage);
                 count++;
-                if (count % 100000 == 0) {
+                if (count==1 ||count % 100000 == 0) {
                     logger.info("Consumer receiving messages");
                 }
             }

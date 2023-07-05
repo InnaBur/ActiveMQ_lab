@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -16,6 +18,8 @@ public class App {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         logger.debug("Start");
+        LocalTime start = LocalTime.now();
+        logger.debug("Start at {}", start);
         Consumer consumer = new Consumer(blockingQueue);
         Producer producer = new Producer();
         FileProcessing fileProcessing = new FileProcessing(blockingQueue);
@@ -35,6 +39,10 @@ public class App {
         fileProcessing.countMessages(FILEPATH_VALID);
         fileProcessing.countMessages(FILEPATH_ERROR);
         logger.debug("Finish");
+        LocalTime end = LocalTime.now();
+        long time = Duration.between(start, end).toSeconds();
+        logger.debug("Finished at {}", end);
+        logger.debug("Time is {}", time);
     }
 
 
