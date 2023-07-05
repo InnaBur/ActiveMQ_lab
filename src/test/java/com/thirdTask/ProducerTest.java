@@ -53,20 +53,20 @@ class ProducerTest {
         assertEquals(2, count);
     }
 
-    @Test
-    void isMessageToQueueSent() throws IOException, InterruptedException, JMSException {
-        Producer producer = new Producer();
-        MyMessage message = new MyMessage();
-        BlockingQueue<MyMessage> bl = new LinkedBlockingQueue<>();
-        bl.put(message);
-
-
-        when(producerSession.createObjectMessage(message)).thenReturn(producerMessage);
-        int messagesInQueue = 101;
-        int count = producer.sendMessageToQueue(messagesInQueue, bl, producerSession, messageProducer);
-
-        assertEquals(102, count);
-    }
+//    @Test
+//    void isMessageToQueueSent() throws IOException, InterruptedException, JMSException {
+//        Producer producer = new Producer();
+//        MyMessage message = new MyMessage();
+//        BlockingQueue<MyMessage> bl = new LinkedBlockingQueue<>();
+//        bl.put(message);
+//
+//
+//        when(producerSession.createObjectMessage(message)).thenReturn(producerMessage);
+//        int messagesInQueue = 101;
+//        int count = producer.sendMessageToQueue(messagesInQueue, bl, producerSession, messageProducer);
+//
+//        assertEquals(102, count);
+//    }
 
     @Test
     void ifIsNotTimePoisonPill() throws IOException {

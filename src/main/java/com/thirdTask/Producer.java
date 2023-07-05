@@ -55,8 +55,8 @@ public class Producer extends ConnectionProcessing implements Runnable {
 
     protected void sendMessage(Session producerSession, MessageProducer producer,
                                       MessageGenerator messageGenerator, Properties properties) throws JMSException, InterruptedException {
-        BlockingQueue<MyMessage> blockingQueueProducer = messageGenerator.generateMessage();
-
+//        BlockingQueue<MyMessage> blockingQueueProducer = messageGenerator.generateMessage();
+int N = Integer.parseInt(new DataProcessing().readOutputFormat());
         long poisonPill = Long.parseLong(properties.getProperty("poisonPill"));
         logger.debug("PoisonPill is {}", poisonPill);
 
@@ -66,13 +66,23 @@ public class Producer extends ConnectionProcessing implements Runnable {
         logger.debug("Time start {}", LocalTime.now());
         logger.debug("Estimated time end {} ", estimatedEndTime);
 
-        while (isNotTimePoisonPill(estimatedEndTime) && !blockingQueueProducer.isEmpty()) {
-            if (!isNotTimePoisonPill(estimatedEndTime) || blockingQueueProducer.isEmpty()) {
+//        while (isNotTimePoisonPill(estimatedEndTime) && !blockingQueueProducer.isEmpty()) {
+//            if (!isNotTimePoisonPill(estimatedEndTime) || blockingQueueProducer.isEmpty()) {
+        while (isNotTimePoisonPill(estimatedEndTime) || count < N) {
+            if (!isNotTimePoisonPill(estimatedEndTime) || count > N) {
                 break;
             }
-            count = sendMessageToQueue(count, blockingQueueProducer, producerSession, producer);
+            count = sendMessageToQueue(count, messageGenerator, producerSession, producer);
         }
         count = sendPoisonPill(count, producerSession, producer);
+
+//        while (isNotTimePoisonPill(estimatedEndTime) && !blockingQueueProducer.isEmpty()) {
+//            if (!isNotTimePoisonPill(estimatedEndTime) || blockingQueueProducer.isEmpty()) {
+//                break;
+//            }
+//            count = sendMessageToQueue(count, blockingQueueProducer, producerSession, producer);
+//        }
+//        count = sendPoisonPill(count, producerSession, producer);
         logger.info("PoisonPill has been sent");
 
         LocalTime end = LocalTime.now();
@@ -93,9 +103,18 @@ public class Producer extends ConnectionProcessing implements Runnable {
         return count;
     }
 
-    protected int sendMessageToQueue(int count, BlockingQueue<MyMessage> blockingQueueProduser, Session producerSession, MessageProducer producer) throws InterruptedException, JMSException {
+//    protected int sendMessageToQueue(int count, BlockingQueue<MyMessage> blockingQueueProduser, Session producerSession, MessageProducer producer) throws InterruptedException, JMSException {
+//        ObjectMessage producerMessage;
+//        MyMessage message = blockingQueueProduser.take();
+//        producerMessage = producerSession.createObjectMessage(message);
+//        producer.send(producerMessage);
+//        count++;
+//        return count;
+//    }
+    protected int sendMessageToQueue(int count, MessageGenerator messageGenerator, Session producerSession, MessageProducer producer) throws InterruptedException, JMSException {
         ObjectMessage producerMessage;
-        MyMessage message = blockingQueueProduser.take();
+
+        MyMessage message = messageGenerator.generateOneMessage();
         producerMessage = producerSession.createObjectMessage(message);
         producer.send(producerMessage);
         count++;
@@ -110,6 +129,7 @@ public class Producer extends ConnectionProcessing implements Runnable {
         Destination producerDestination = producerSession.createQueue(properties.getProperty("nameQueue"));
         logger.debug("Queue was created");
         MessageProducer producer = producerSession.createProducer(producerDestination);
+        logger.debug("Producer was created");
         producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
         return producer;
     }
