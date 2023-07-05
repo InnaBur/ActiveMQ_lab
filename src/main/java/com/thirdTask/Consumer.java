@@ -69,7 +69,7 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         int count = 0;
         while (true) {
 
-            Message consumerMessage = consumer.receive(100);
+            Message consumerMessage = consumer.receive(2000);
             if (consumerMessage == null) {
                 return count;
             } else {
