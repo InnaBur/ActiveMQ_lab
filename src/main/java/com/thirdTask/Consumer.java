@@ -70,10 +70,8 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         while (true) {
 
             Message consumerMessage = consumer.receive(2000);
-            if (consumerMessage == null) {
-                logger.debug("Consumer Message is null!!");
-                return count;
-            } else {
+            if (consumerMessage != null) {
+
                 ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerObjectMessage.getObject();
                 if (isPoisonPill(myMessage)) {
@@ -83,9 +81,12 @@ public class Consumer extends ConnectionProcessing implements Runnable {
                 }
                 blockingQueue.put(myMessage);
                 count++;
-                if (count==1 ||count % 100000 == 0) {
+                if (count == 1 || count % 100000 == 0) {
                     logger.info("Consumer receiving messages");
                 }
+            } else {
+                logger.debug("Consumer Message is null!!");
+                return count;
             }
         }
 
