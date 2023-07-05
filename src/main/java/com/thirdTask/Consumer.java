@@ -71,6 +71,7 @@ public class Consumer extends ConnectionProcessing implements Runnable {
 
             Message consumerMessage = consumer.receive(2000);
             if (consumerMessage == null) {
+                logger.debug("Consumer Message is null!!");
                 return count;
             } else {
                 ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;

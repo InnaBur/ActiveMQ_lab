@@ -5154,3 +5154,252 @@ Caused by: org.apache.activemq.transport.RequestTimedOutIOException: null
 05.07.2023 13:19:30.899 [main] DEBUG com.thirdTask.App - Finish
 05.07.2023 13:19:30.899 [main] DEBUG com.thirdTask.App - Finished at 13:19:30.899115900
 05.07.2023 13:19:30.899 [main] DEBUG com.thirdTask.App - Time is 82
+05.07.2023 13:25:27.358 [main] DEBUG com.thirdTask.App - Start
+05.07.2023 13:25:27.361 [main] DEBUG com.thirdTask.App - Start at 13:25:27.361361600
+05.07.2023 13:25:27.369 [main] INFO  c.t.FileProcessing - File valid.csv created
+05.07.2023 13:25:27.378 [main] INFO  c.t.FileProcessing - File error.csv created
+05.07.2023 13:25:27.381 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:25:27.382 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:25:27.593 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:25:27.601 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51371] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:25:27.604 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51371] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:25:27.605 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51371] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51371 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:25:27.605 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51371] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51371 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:25:27.619 [main] DEBUG c.thirdTask.Producer - Connection started
+05.07.2023 13:25:27.640 [main] DEBUG c.thirdTask.Producer - Queue was created
+05.07.2023 13:25:27.645 [main] DEBUG c.thirdTask.Producer - Producer was created
+05.07.2023 13:25:27.646 [main] DEBUG c.thirdTask.Producer - PoisonPill is 8
+05.07.2023 13:25:27.646 [main] DEBUG c.thirdTask.Producer - Time start 13:25:27.646638200
+05.07.2023 13:25:27.646 [main] DEBUG c.thirdTask.Producer - Estimated time end 13:25:35.646638200 
+05.07.2023 13:25:31.449 [main] INFO  c.thirdTask.Producer - Producer sending messages
+05.07.2023 13:25:33.726 [main] INFO  c.thirdTask.Producer - Producer sending messages
+05.07.2023 13:25:35.647 [main] INFO  c.thirdTask.Producer - PoisonPill has been sent
+05.07.2023 13:25:35.647 [main] INFO  c.thirdTask.Producer - PoisonPill worked
+05.07.2023 13:25:35.647 [main] INFO  c.thirdTask.Producer - Messages sent at 13:25:35.647041600, for 8000 milliseconds
+05.07.2023 13:25:35.647 [main] DEBUG c.thirdTask.Producer - Sent 287278 messages
+05.07.2023 13:25:35.654 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7416fe75[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:25:35.655 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51371] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@177d833b[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.001 seconds.
+05.07.2023 13:25:35.656 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51371
+05.07.2023 13:25:35.657 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@6b94971c[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:25:35.659 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51371]
+05.07.2023 13:25:35.659 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@6b94971c[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:25:35.660 [main] INFO  c.thirdTask.Producer - Connection closed
+05.07.2023 13:25:35.661 [Thread-2] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:25:35.662 [Thread-2] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:25:35.664 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51372] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:25:35.664 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51372] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:25:35.665 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51372] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51372 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:25:35.665 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51372] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51372 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:25:35.674 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@7ca72ad6[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:25:35.676 [Thread-2] DEBUG c.thirdTask.Consumer - Consumer was created
+05.07.2023 13:25:35.684 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:25:36.668 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:25:36.668 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 19219
+05.07.2023 13:25:36.736 [Thread-3] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+05.07.2023 13:25:36.737 [Thread-3] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+05.07.2023 13:25:39.622 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:25:44.189 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:25:47.485 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:25:47.485 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 256824
+05.07.2023 13:25:47.923 [Thread-2] INFO  c.thirdTask.Consumer - PoisonPill received
+05.07.2023 13:25:47.924 [Thread-2] INFO  c.thirdTask.Consumer - Received 287277 messages
+05.07.2023 13:25:47.924 [Thread-2] INFO  c.thirdTask.Consumer - Speed, messages in second 23460.75949367089
+05.07.2023 13:25:47.924 [Thread-2] DEBUG o.a.a.ActiveMQMessageConsumer - remove: ID:DESKTOP-GT5B82O-51370-1688556327477-3:1:1:1, lastDeliveredSequenceId:6800405
+05.07.2023 13:25:47.926 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7ca72ad6[Shutting down, pool size = 3, active threads = 0, queued tasks = 0, completed tasks = 256110] is shutdown: true and terminated: false took: 0.001 seconds.
+05.07.2023 13:25:47.927 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@27d6ba39[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:25:47.927 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2b66853[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:25:47.928 [Thread-2] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51372
+05.07.2023 13:25:47.928 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@456e0f8e[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:25:47.929 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51372]
+05.07.2023 13:25:47.929 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@456e0f8e[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:26:34.767 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:26:34.767 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 11235
+05.07.2023 13:26:36.752 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 6896
+05.07.2023 13:26:37.024 [main] DEBUG c.t.FileProcessing - messages in error.csv: 280381
+05.07.2023 13:26:37.024 [main] DEBUG com.thirdTask.App - Finish
+05.07.2023 13:26:37.024 [main] DEBUG com.thirdTask.App - Finished at 13:26:37.024884500
+05.07.2023 13:26:37.024 [main] DEBUG com.thirdTask.App - Time is 69
+05.07.2023 13:27:27.067 [main] DEBUG com.thirdTask.App - Start
+05.07.2023 13:27:27.070 [main] DEBUG com.thirdTask.App - Start at 13:27:27.070901700
+05.07.2023 13:27:27.082 [main] INFO  c.t.FileProcessing - File valid.csv created
+05.07.2023 13:27:27.089 [main] INFO  c.t.FileProcessing - File error.csv created
+05.07.2023 13:27:27.091 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:27:27.092 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:27:27.289 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:27:27.296 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51397] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:27:27.299 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51397] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:27:27.300 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51397] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51397 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:27:27.301 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51397] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51397 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:27:27.312 [main] DEBUG c.thirdTask.Producer - Connection started
+05.07.2023 13:27:27.333 [main] DEBUG c.thirdTask.Producer - Queue was created
+05.07.2023 13:27:27.339 [main] DEBUG c.thirdTask.Producer - Producer was created
+05.07.2023 13:27:27.339 [main] DEBUG c.thirdTask.Producer - PoisonPill is 8
+05.07.2023 13:27:27.339 [main] DEBUG c.thirdTask.Producer - Time start 13:27:27.339270500
+05.07.2023 13:27:27.340 [main] DEBUG c.thirdTask.Producer - Estimated time end 13:27:35.339270500 
+05.07.2023 13:27:30.801 [main] INFO  c.thirdTask.Producer - Producer sending messages
+05.07.2023 13:27:30.802 [main] INFO  c.thirdTask.Producer - PoisonPill has been sent
+05.07.2023 13:27:30.802 [main] INFO  c.thirdTask.Producer - Messages sent at 13:27:30.802114200, for 3462 milliseconds
+05.07.2023 13:27:30.802 [main] DEBUG c.thirdTask.Producer - Sent 100002 messages
+05.07.2023 13:27:30.808 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7334ab39[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:27:30.809 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51397] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2c99d53e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.001 seconds.
+05.07.2023 13:27:30.809 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51397
+05.07.2023 13:27:30.810 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@7e9efa45[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:27:30.812 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51397]
+05.07.2023 13:27:30.812 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7e9efa45[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:27:30.813 [main] INFO  c.thirdTask.Producer - Connection closed
+05.07.2023 13:27:30.814 [Thread-2] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:27:30.815 [Thread-2] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:27:30.816 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51398] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:27:30.817 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51398] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:27:30.817 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51398] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51398 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:27:30.817 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51398] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51398 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:27:30.825 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@6ea2798[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:27:30.828 [Thread-2] DEBUG c.thirdTask.Consumer - Consumer was created
+05.07.2023 13:27:30.833 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:27:31.830 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:27:31.831 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 18648
+05.07.2023 13:27:31.906 [Thread-3] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+05.07.2023 13:27:31.907 [Thread-3] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+05.07.2023 13:27:34.851 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:27:34.851 [Thread-2] INFO  c.thirdTask.Consumer - PoisonPill received
+05.07.2023 13:27:34.851 [Thread-2] INFO  c.thirdTask.Consumer - Received 100001 messages
+05.07.2023 13:27:34.852 [Thread-2] INFO  c.thirdTask.Consumer - Speed, messages in second 24857.32040765598
+05.07.2023 13:27:34.852 [Thread-2] DEBUG o.a.a.ActiveMQMessageConsumer - remove: ID:DESKTOP-GT5B82O-51396-1688556447178-3:1:1:1, lastDeliveredSequenceId:7133883
+05.07.2023 13:27:34.854 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@6ea2798[Shutting down, pool size = 3, active threads = 0, queued tasks = 0, completed tasks = 85228] is shutdown: true and terminated: false took: 0.000 seconds.
+05.07.2023 13:27:34.854 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@69d500ad[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:27:34.855 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@24864103[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:27:34.855 [Thread-2] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51398
+05.07.2023 13:27:34.855 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@528d5bb3[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:27:34.856 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51398]
+05.07.2023 13:27:34.856 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@528d5bb3[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:27:37.957 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:27:37.957 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 81354
+05.07.2023 13:27:53.015 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 2505
+05.07.2023 13:27:53.224 [main] DEBUG c.t.FileProcessing - messages in error.csv: 97496
+05.07.2023 13:27:53.224 [main] DEBUG com.thirdTask.App - Finish
+05.07.2023 13:27:53.224 [main] DEBUG com.thirdTask.App - Finished at 13:27:53.224167500
+05.07.2023 13:27:53.224 [main] DEBUG com.thirdTask.App - Time is 26
+05.07.2023 13:35:00.268 [main] DEBUG com.thirdTask.App - Start
+05.07.2023 13:35:00.271 [main] DEBUG com.thirdTask.App - Start at 13:35:00.271859400
+05.07.2023 13:35:00.285 [main] INFO  c.t.FileProcessing - File valid.csv created
+05.07.2023 13:35:00.288 [main] INFO  c.t.FileProcessing - File error.csv created
+05.07.2023 13:35:00.290 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:35:00.291 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:35:00.492 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:35:00.500 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51441] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:35:00.503 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51441] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:35:00.504 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51441] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51441 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:35:00.504 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51441] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51441 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:35:00.517 [main] DEBUG c.thirdTask.Producer - Connection started
+05.07.2023 13:35:00.538 [main] DEBUG c.thirdTask.Producer - Queue was created
+05.07.2023 13:35:00.544 [main] DEBUG c.thirdTask.Producer - Producer was created
+05.07.2023 13:35:00.544 [main] DEBUG c.thirdTask.Producer - PoisonPill is 8
+05.07.2023 13:35:00.544 [main] DEBUG c.thirdTask.Producer - Time start 13:35:00.544496800
+05.07.2023 13:35:00.545 [main] DEBUG c.thirdTask.Producer - Estimated time end 13:35:08.544496800 
+05.07.2023 13:35:03.952 [main] INFO  c.thirdTask.Producer - Producer sending messages
+05.07.2023 13:35:03.953 [main] INFO  c.thirdTask.Producer - PoisonPill has been sent
+05.07.2023 13:35:03.953 [main] INFO  c.thirdTask.Producer - Received 100002 messages
+05.07.2023 13:35:03.953 [main] INFO  c.thirdTask.Producer - Messages sent at 13:35:03.953521500, for 3409 milliseconds
+05.07.2023 13:35:03.954 [main] DEBUG c.thirdTask.Producer - Produsser speed is 29334.702258726902
+05.07.2023 13:35:03.955 [main] DEBUG c.thirdTask.Producer - Sent 100002 messages
+05.07.2023 13:35:03.961 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@780d32de[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:35:03.961 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51441] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2dbfb39d[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.001 seconds.
+05.07.2023 13:35:03.961 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51441
+05.07.2023 13:35:03.963 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@16e04965[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:35:03.965 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51441]
+05.07.2023 13:35:03.965 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@16e04965[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:35:03.967 [main] INFO  c.thirdTask.Producer - Connection closed
+05.07.2023 13:35:03.967 [Thread-2] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:35:03.969 [Thread-2] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:35:03.971 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51442] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:35:03.973 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51442] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:35:03.973 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51442] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51442 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:35:03.973 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51442] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51442 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:35:03.980 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@5e977e5c[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:35:03.983 [Thread-2] DEBUG c.thirdTask.Consumer - Consumer was created
+05.07.2023 13:35:03.989 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:35:04.987 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:35:04.988 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 18866
+05.07.2023 13:35:05.063 [Thread-3] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+05.07.2023 13:35:05.064 [Thread-3] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+05.07.2023 13:35:08.017 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:35:08.018 [Thread-2] INFO  c.thirdTask.Consumer - PoisonPill received
+05.07.2023 13:35:08.018 [Thread-2] INFO  c.thirdTask.Consumer - Received 100001 messages
+05.07.2023 13:35:08.018 [Thread-2] INFO  c.thirdTask.Consumer - Speed, messages in second 24789.53891918691
+05.07.2023 13:35:08.018 [Thread-2] DEBUG o.a.a.ActiveMQMessageConsumer - remove: ID:DESKTOP-GT5B82O-51440-1688556900381-3:1:1:1, lastDeliveredSequenceId:7307593
+05.07.2023 13:35:08.020 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@5e977e5c[Shutting down, pool size = 3, active threads = 0, queued tasks = 0, completed tasks = 86951] is shutdown: true and terminated: false took: 0.000 seconds.
+05.07.2023 13:35:08.020 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51442] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7a179d7e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:35:08.021 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@66181eec[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:35:08.021 [Thread-2] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51442
+05.07.2023 13:35:08.021 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@16c414cd[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:35:08.023 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51442]
+05.07.2023 13:35:08.023 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@16c414cd[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:35:11.038 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:35:11.038 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 81136
+05.07.2023 13:35:26.930 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 2354
+05.07.2023 13:35:27.175 [main] DEBUG c.t.FileProcessing - messages in error.csv: 97647
+05.07.2023 13:35:27.175 [main] DEBUG com.thirdTask.App - Finish
+05.07.2023 13:35:27.175 [main] DEBUG com.thirdTask.App - Finished at 13:35:27.175938800
+05.07.2023 13:35:27.175 [main] DEBUG com.thirdTask.App - Time is 26
+05.07.2023 13:36:09.180 [main] DEBUG com.thirdTask.App - Start
+05.07.2023 13:36:09.183 [main] DEBUG com.thirdTask.App - Start at 13:36:09.183687300
+05.07.2023 13:36:09.196 [main] INFO  c.t.FileProcessing - File valid.csv created
+05.07.2023 13:36:09.199 [main] INFO  c.t.FileProcessing - File error.csv created
+05.07.2023 13:36:09.200 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:36:09.201 [main] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:36:09.400 [main] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:36:09.407 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51453] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:36:09.410 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51453] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:36:09.411 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51453] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51453 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:36:09.412 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51453] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51453 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:36:09.423 [main] DEBUG c.thirdTask.Producer - Connection started
+05.07.2023 13:36:09.442 [main] DEBUG c.thirdTask.Producer - Queue was created
+05.07.2023 13:36:09.447 [main] DEBUG c.thirdTask.Producer - Producer was created
+05.07.2023 13:36:09.447 [main] DEBUG c.thirdTask.Producer - PoisonPill is 8
+05.07.2023 13:36:09.448 [main] DEBUG c.thirdTask.Producer - Time start 13:36:09.448576200
+05.07.2023 13:36:09.448 [main] DEBUG c.thirdTask.Producer - Estimated time end 13:36:17.448576200 
+05.07.2023 13:36:13.055 [main] INFO  c.thirdTask.Producer - Producer sending messages
+05.07.2023 13:36:13.055 [main] INFO  c.thirdTask.Producer - PoisonPill has been sent
+05.07.2023 13:36:13.055 [main] INFO  c.thirdTask.Producer - Received 100002 messages
+05.07.2023 13:36:13.056 [main] INFO  c.thirdTask.Producer - Messages sent at 13:36:13.056630, for 3607 milliseconds
+05.07.2023 13:36:13.056 [main] DEBUG c.thirdTask.Producer - Produsser speed is 27724.424729692262
+05.07.2023 13:36:13.057 [main] DEBUG c.thirdTask.Producer - Sent 100002 messages
+05.07.2023 13:36:13.063 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@780d32de[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:36:13.063 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51453] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2477e0b7[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:36:13.064 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51453
+05.07.2023 13:36:13.065 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@16e04965[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:36:13.067 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51453]
+05.07.2023 13:36:13.067 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@16e04965[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:36:13.069 [main] INFO  c.thirdTask.Producer - Connection closed
+05.07.2023 13:36:13.070 [Thread-2] DEBUG c.t.FileProcessing - Properties were loaded
+05.07.2023 13:36:13.071 [Thread-2] DEBUG o.a.a.t.WireFormatNegotiator - Sending: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:36:13.072 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51454] DEBUG o.a.a.t.InactivityMonitor - Using min of local: WireFormatInfo { version=9, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, StackTraceEnabled=true, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:36:13.073 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51454] DEBUG o.a.a.t.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=Java, CacheEnabled=true, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, MaxFrameSizeEnabled=true, ProviderVersion=5.18.1}, magic=[A,c,t,i,v,e,M,Q]}
+05.07.2023 13:36:13.073 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51454] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51454 before negotiation: OpenWireFormat{version=9, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+05.07.2023 13:36:13.073 [ActiveMQ Transport: tcp:///127.0.0.1:61616@51454] DEBUG o.a.a.t.WireFormatNegotiator - tcp:///127.0.0.1:61616@51454 after negotiation: OpenWireFormat{version=9, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+05.07.2023 13:36:13.083 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@7cb92c26[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:36:13.088 [Thread-2] DEBUG c.thirdTask.Consumer - Consumer was created
+05.07.2023 13:36:13.095 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:36:15.094 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:36:15.094 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 53903
+05.07.2023 13:36:15.150 [Thread-3] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+05.07.2023 13:36:15.151 [Thread-3] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+05.07.2023 13:36:16.741 [Thread-2] INFO  c.thirdTask.Consumer - Consumer receiving messages
+05.07.2023 13:36:16.742 [Thread-2] INFO  c.thirdTask.Consumer - PoisonPill received
+05.07.2023 13:36:16.742 [Thread-2] INFO  c.thirdTask.Consumer - Received 100001 messages
+05.07.2023 13:36:16.742 [Thread-2] INFO  c.thirdTask.Consumer - Speed, messages in second 27367.54241926656
+05.07.2023 13:36:16.743 [Thread-2] DEBUG o.a.a.ActiveMQMessageConsumer - remove: ID:DESKTOP-GT5B82O-51452-1688556969280-3:1:1:1, lastDeliveredSequenceId:7483239
+05.07.2023 13:36:16.744 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7cb92c26[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 85263] is shutdown: true and terminated: false took: 0.000 seconds.
+05.07.2023 13:36:16.745 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@702532a2[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:36:16.746 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@426c0944[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+05.07.2023 13:36:16.746 [Thread-2] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp:///127.0.0.1:61616@51454
+05.07.2023 13:36:16.746 [Thread-2] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@7af24830[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+05.07.2023 13:36:16.747 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[addr=/127.0.0.1,port=61616,localport=51454]
+05.07.2023 13:36:16.747 [Thread-2] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@7af24830[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+05.07.2023 13:36:26.665 [Thread-3] DEBUG c.t.FileProcessing - Messages drained to list
+05.07.2023 13:36:26.666 [Thread-3] DEBUG c.t.FileProcessing - Writer List size is 46099
+05.07.2023 13:36:35.308 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 2441
+05.07.2023 13:36:35.476 [main] DEBUG c.t.FileProcessing - messages in error.csv: 97560
+05.07.2023 13:36:35.477 [main] DEBUG com.thirdTask.App - Finish
+05.07.2023 13:36:35.477 [main] DEBUG com.thirdTask.App - Finished at 13:36:35.477585200
+05.07.2023 13:36:35.477 [main] DEBUG com.thirdTask.App - Time is 26

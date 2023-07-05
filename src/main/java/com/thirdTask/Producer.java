@@ -66,8 +66,6 @@ int N = Integer.parseInt(new DataProcessing().readOutputFormat());
         logger.debug("Time start {}", LocalTime.now());
         logger.debug("Estimated time end {} ", estimatedEndTime);
 
-//        while (isNotTimePoisonPill(estimatedEndTime) && !blockingQueueProducer.isEmpty()) {
-//            if (!isNotTimePoisonPill(estimatedEndTime) || blockingQueueProducer.isEmpty()) {
         while (isNotTimePoisonPill(estimatedEndTime) || count < N) {
             if (!isNotTimePoisonPill(estimatedEndTime) || count > N) {
                 break;
@@ -92,8 +90,9 @@ int N = Integer.parseInt(new DataProcessing().readOutputFormat());
         if (!isNotTimePoisonPill(estimatedEndTime)) {
             logger.info("PoisonPill worked");
         }
-
+        double speed = countTime(start, count);
         logger.info("Messages sent at {}, for {} milliseconds", LocalTime.now(), Duration.between(start, end).toMillis());
+        logger.debug("Produsser speed is {}", speed);
         logger.debug("Sent {} messages", count);
     }
 
@@ -104,6 +103,13 @@ int N = Integer.parseInt(new DataProcessing().readOutputFormat());
         producer.send(poisonPillMessage);
         count++;
         return count;
+    }
+
+    protected double countTime(LocalTime start, int count) {
+        LocalTime end = LocalTime.now();
+        logger.info("Received {} messages", count);
+        double seconds = Duration.between(start, end).toMillis() / 1000.0;
+        return count / seconds;
     }
 
 //    protected int sendMessageToQueue(int count, BlockingQueue<MyMessage> blockingQueueProduser, Session producerSession, MessageProducer producer) throws InterruptedException, JMSException {

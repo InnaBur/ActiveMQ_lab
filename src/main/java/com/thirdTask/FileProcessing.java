@@ -31,7 +31,7 @@ public class FileProcessing implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             while (!blockingQueue.isEmpty()) {
                 blockingQueue.drainTo(list);
                 logger.debug("Messages drained to list");
