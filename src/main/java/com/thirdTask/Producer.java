@@ -73,6 +73,9 @@ int N = Integer.parseInt(new DataProcessing().readOutputFormat());
                 break;
             }
             count = sendMessageToQueue(count, messageGenerator, producerSession, producer);
+            if (count % 100000 == 0) {
+                logger.info("Producer sending messages");
+            }
         }
         count = sendPoisonPill(count, producerSession, producer);
 
@@ -118,6 +121,7 @@ int N = Integer.parseInt(new DataProcessing().readOutputFormat());
         producerMessage = producerSession.createObjectMessage(message);
         producer.send(producerMessage);
         count++;
+
         return count;
     }
 

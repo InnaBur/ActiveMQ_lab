@@ -45,6 +45,7 @@ public class Consumer extends ConnectionProcessing implements Runnable {
         Destination consumerDestination = consumerSession.createQueue(properties.getProperty("nameQueue"));
 
         MessageConsumer consumer = consumerSession.createConsumer(consumerDestination);
+        logger.debug("Consumer was created");
         receiveMessages(consumer);
 
         closeSession(consumer, consumerSession, consumerConnection);
@@ -63,14 +64,14 @@ public class Consumer extends ConnectionProcessing implements Runnable {
             logger.error("JMSException occurred in {}", this.getClass(), e);
         }
     }
+
     protected int countMessages(MessageConsumer consumer) throws JMSException, InterruptedException {
         int count = 0;
-        boolean receiveMessages = true;
-        while (receiveMessages) {
+        while (true) {
 
-            Message consumerMessage = consumer.receive(1000);
+            Message consumerMessage = consumer.receive(100);
             if (consumerMessage == null) {
-                receiveMessages = false;
+                return count;
             } else {
                 ObjectMessage consumerObjectMessage = (ObjectMessage) consumerMessage;
                 MyMessage myMessage = (MyMessage) consumerObjectMessage.getObject();
@@ -81,9 +82,12 @@ public class Consumer extends ConnectionProcessing implements Runnable {
 //                }
                 blockingQueue.put(myMessage);
                 count++;
+                if (count % 100000 == 0) {
+                    logger.info("Consumer receiving messages");
+                }
             }
         }
-        return count;
+
     }
 
     protected double countTime(LocalTime start, int count) {

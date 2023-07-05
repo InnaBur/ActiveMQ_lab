@@ -35,6 +35,8 @@ public class FileProcessing implements Runnable {
             while (!blockingQueue.isEmpty()) {
                 Queue<MyMessage> list = new LinkedList<>();
                 blockingQueue.drainTo(list);
+                logger.debug("Messages drained to list");
+                logger.debug("Writer List size is {}", list.size());
                 writeInFilesAfterValidation(list);
             }
         } catch (InterruptedException e) {
