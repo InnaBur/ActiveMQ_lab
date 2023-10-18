@@ -1,87 +1,18 @@
-13.09.2023 19:43:10.752 [main] DEBUG com.thirdTask.App - Start
-13.09.2023 19:43:10.765 [main] DEBUG com.thirdTask.App - Start at 19:43:10.765448800
-13.09.2023 19:43:10.909 [main] INFO  c.t.FileProcessing - File valid.csv created
-13.09.2023 19:43:10.911 [main] INFO  c.t.FileProcessing - File error.csv created
-13.09.2023 19:43:10.927 [main] DEBUG c.t.FileProcessing - Properties were loaded
-13.09.2023 19:43:10.928 [main] DEBUG c.t.FileProcessing - Properties were loaded
-13.09.2023 19:43:11.191 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@147e2ae7[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
-13.09.2023 19:43:11.193 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp://127.0.0.1:61616
-13.09.2023 19:43:11.194 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@10289886[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-13.09.2023 19:43:11.195 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[unconnected]
-13.09.2023 19:43:11.196 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@10289886[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
-13.09.2023 19:43:11.197 [main] ERROR c.thirdTask.Producer - JMSException occurred in class com.thirdTask.Producer
-javax.jms.JMSException: Error while attempting to add new Connection to the pool
-	at org.apache.activemq.jms.pool.PooledConnectionFactory.createJmsException(PooledConnectionFactory.java:312)
-	at org.apache.activemq.jms.pool.PooledConnectionFactory.createConnection(PooledConnectionFactory.java:231)
-	at org.apache.activemq.jms.pool.PooledConnectionFactory.createConnection(PooledConnectionFactory.java:210)
-	at com.thirdTask.Producer.createProducerAndSendMessage(Producer.java:41)
-	at com.thirdTask.Producer.run(Producer.java:24)
-	at com.thirdTask.App.main(App.java:28)
-Caused by: javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
-	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35)
-	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293)
-	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238)
-	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184)
-	at org.apache.activemq.jms.pool.PooledConnectionFactory.createConnection(PooledConnectionFactory.java:321)
-	at org.apache.activemq.jms.pool.PooledConnectionFactory$1.makeObject(PooledConnectionFactory.java:98)
-	at org.apache.activemq.jms.pool.PooledConnectionFactory$1.makeObject(PooledConnectionFactory.java:95)
-	at org.apache.commons.pool2.impl.GenericKeyedObjectPool.create(GenericKeyedObjectPool.java:780)
-	at org.apache.commons.pool2.impl.GenericKeyedObjectPool.addObject(GenericKeyedObjectPool.java:334)
-	at org.apache.activemq.jms.pool.PooledConnectionFactory.createConnection(PooledConnectionFactory.java:227)
-	... 4 common frames omitted
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
-	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504)
-	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467)
-	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55)
-	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132)
-	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
-	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72)
-	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
-	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
-	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273)
-	... 12 common frames omitted
-13.09.2023 19:43:11.201 [Thread-0] DEBUG c.t.FileProcessing - Properties were loaded
-13.09.2023 19:43:11.202 [Thread-0] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@37d6e578[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
-13.09.2023 19:43:11.202 [Thread-0] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp://127.0.0.1:61616
-13.09.2023 19:43:11.202 [Thread-0] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@39110df2[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-13.09.2023 19:43:11.203 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[unconnected]
-13.09.2023 19:43:11.204 [Thread-0] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@39110df2[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
-13.09.2023 19:43:11.204 [Thread-0] ERROR c.thirdTask.Consumer - JMSException occurred in class com.thirdTask.Consumer
-javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
-	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35)
-	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293)
-	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:238)
-	at org.apache.activemq.ActiveMQConnectionFactory.createConnection(ActiveMQConnectionFactory.java:184)
-	at com.thirdTask.Consumer.createConsumerAndReceiveMessages(Consumer.java:42)
-	at com.thirdTask.Consumer.run(Consumer.java:28)
-	at java.base/java.lang.Thread.run(Thread.java:829)
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
-	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
-	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
-	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.apache.activemq.transport.tcp.TcpTransport.connect(TcpTransport.java:504)
-	at org.apache.activemq.transport.tcp.TcpTransport.doStart(TcpTransport.java:467)
-	at org.apache.activemq.util.ServiceSupport.start(ServiceSupport.java:55)
-	at org.apache.activemq.transport.AbstractInactivityMonitor.start(AbstractInactivityMonitor.java:132)
-	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
-	at org.apache.activemq.transport.WireFormatNegotiator.start(WireFormatNegotiator.java:72)
-	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
-	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
-	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273)
-	... 5 common frames omitted
-13.09.2023 19:43:13.206 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 0
-13.09.2023 19:43:13.208 [main] DEBUG c.t.FileProcessing - messages in error.csv: 0
-13.09.2023 19:43:13.208 [main] DEBUG com.thirdTask.App - Finish
-13.09.2023 19:43:13.208 [main] DEBUG com.thirdTask.App - Finished at 19:43:13.208979400
-13.09.2023 19:43:13.208 [main] DEBUG com.thirdTask.App - Time is 2
+18.10.2023 19:32:27.148 [main] INFO  c.thirdTask.Consumer - Received 300 messages
+18.10.2023 19:32:27.560 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+18.10.2023 19:32:27.563 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+18.10.2023 19:32:29.611 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:32:29.787 [main] DEBUG c.t.FileProcessing - messages in test.txt: 1
+18.10.2023 19:32:29.801 [main] INFO  c.t.FileProcessing - File someFile.csv created
+18.10.2023 19:32:29.820 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:32:29.839 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:32:29.880 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:33:38.020 [main] INFO  c.thirdTask.Consumer - Received 300 messages
+18.10.2023 19:33:38.288 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+18.10.2023 19:33:38.289 [main] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+18.10.2023 19:33:40.064 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:33:40.236 [main] DEBUG c.t.FileProcessing - messages in test.txt: 1
+18.10.2023 19:33:40.247 [main] INFO  c.t.FileProcessing - File someFile.csv created
+18.10.2023 19:33:40.267 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:33:40.282 [main] DEBUG c.t.FileProcessing - Properties were loaded
+18.10.2023 19:33:40.309 [main] DEBUG c.t.FileProcessing - Properties were loaded
