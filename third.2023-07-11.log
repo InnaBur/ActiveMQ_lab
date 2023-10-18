@@ -1,15 +1,15 @@
-13.09.2023 19:43:10.752 [main] DEBUG com.thirdTask.App - Start
-13.09.2023 19:43:10.765 [main] DEBUG com.thirdTask.App - Start at 19:43:10.765448800
-13.09.2023 19:43:10.909 [main] INFO  c.t.FileProcessing - File valid.csv created
-13.09.2023 19:43:10.911 [main] INFO  c.t.FileProcessing - File error.csv created
-13.09.2023 19:43:10.927 [main] DEBUG c.t.FileProcessing - Properties were loaded
-13.09.2023 19:43:10.928 [main] DEBUG c.t.FileProcessing - Properties were loaded
-13.09.2023 19:43:11.191 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@147e2ae7[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
-13.09.2023 19:43:11.193 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp://127.0.0.1:61616
-13.09.2023 19:43:11.194 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@10289886[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-13.09.2023 19:43:11.195 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[unconnected]
-13.09.2023 19:43:11.196 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@10289886[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
-13.09.2023 19:43:11.197 [main] ERROR c.thirdTask.Producer - JMSException occurred in class com.thirdTask.Producer
+11.07.2023 19:03:43.993 [main] DEBUG com.thirdTask.App - Start
+11.07.2023 19:03:44.023 [main] DEBUG com.thirdTask.App - Start at 19:03:44.023922200
+11.07.2023 19:03:44.127 [main] INFO  c.t.FileProcessing - File valid.csv created
+11.07.2023 19:03:44.133 [main] INFO  c.t.FileProcessing - File error.csv created
+11.07.2023 19:03:44.157 [main] DEBUG c.t.FileProcessing - Properties were loaded
+11.07.2023 19:03:44.159 [main] DEBUG c.t.FileProcessing - Properties were loaded
+11.07.2023 19:03:44.563 [main] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@d2de489[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.001 seconds.
+11.07.2023 19:03:44.565 [main] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp://127.0.0.1:61616
+11.07.2023 19:03:44.569 [main] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@1df8da7a[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+11.07.2023 19:03:44.575 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[unconnected]
+11.07.2023 19:03:44.576 [main] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@1df8da7a[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+11.07.2023 19:03:44.579 [main] ERROR c.thirdTask.Producer - JMSException occurred in class com.thirdTask.Producer
 javax.jms.JMSException: Error while attempting to add new Connection to the pool
 	at org.apache.activemq.jms.pool.PooledConnectionFactory.createJmsException(PooledConnectionFactory.java:312)
 	at org.apache.activemq.jms.pool.PooledConnectionFactory.createConnection(PooledConnectionFactory.java:231)
@@ -47,13 +47,13 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
 	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273)
 	... 12 common frames omitted
-13.09.2023 19:43:11.201 [Thread-0] DEBUG c.t.FileProcessing - Properties were loaded
-13.09.2023 19:43:11.202 [Thread-0] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@37d6e578[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
-13.09.2023 19:43:11.202 [Thread-0] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp://127.0.0.1:61616
-13.09.2023 19:43:11.202 [Thread-0] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@39110df2[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-13.09.2023 19:43:11.203 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[unconnected]
-13.09.2023 19:43:11.204 [Thread-0] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@39110df2[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
-13.09.2023 19:43:11.204 [Thread-0] ERROR c.thirdTask.Consumer - JMSException occurred in class com.thirdTask.Consumer
+11.07.2023 19:03:44.588 [Thread-0] DEBUG c.t.FileProcessing - Properties were loaded
+11.07.2023 19:03:44.590 [Thread-0] DEBUG o.a.a.u.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@d7f7a1e[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+11.07.2023 19:03:44.591 [Thread-0] DEBUG o.a.a.t.t.TcpTransport - Stopping transport tcp://127.0.0.1:61616
+11.07.2023 19:03:44.591 [Thread-0] DEBUG o.a.a.t.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@3b885c1[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+11.07.2023 19:03:44.592 [ActiveMQ Task-1] DEBUG o.a.a.t.t.TcpTransport - Closed socket Socket[unconnected]
+11.07.2023 19:03:44.592 [Thread-0] DEBUG o.a.a.u.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@3b885c1[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+11.07.2023 19:03:44.593 [Thread-0] ERROR c.thirdTask.Consumer - JMSException occurred in class com.thirdTask.Consumer
 javax.jms.JMSException: Could not connect to broker URL: tcp://127.0.0.1:61616. Reason: java.net.ConnectException: Connection refused: connect
 	at org.apache.activemq.util.JMSExceptionSupport.create(JMSExceptionSupport.java:35)
 	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:293)
@@ -80,8 +80,8 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at org.apache.activemq.transport.TransportFilter.start(TransportFilter.java:58)
 	at org.apache.activemq.ActiveMQConnectionFactory.createActiveMQConnection(ActiveMQConnectionFactory.java:273)
 	... 5 common frames omitted
-13.09.2023 19:43:13.206 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 0
-13.09.2023 19:43:13.208 [main] DEBUG c.t.FileProcessing - messages in error.csv: 0
-13.09.2023 19:43:13.208 [main] DEBUG com.thirdTask.App - Finish
-13.09.2023 19:43:13.208 [main] DEBUG com.thirdTask.App - Finished at 19:43:13.208979400
-13.09.2023 19:43:13.208 [main] DEBUG com.thirdTask.App - Time is 2
+11.07.2023 19:03:46.606 [main] DEBUG c.t.FileProcessing - messages in valid.csv: 0
+11.07.2023 19:03:46.616 [main] DEBUG c.t.FileProcessing - messages in error.csv: 0
+11.07.2023 19:03:46.617 [main] DEBUG com.thirdTask.App - Finish
+11.07.2023 19:03:46.617 [main] DEBUG com.thirdTask.App - Finished at 19:03:46.617476600
+11.07.2023 19:03:46.617 [main] DEBUG com.thirdTask.App - Time is 2
